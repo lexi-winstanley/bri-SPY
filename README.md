@@ -77,7 +77,6 @@ The past two projects we have been working with Web Apps, so we decided on the F
 
 ## Techologies:
 
-
 <li><strong><a href="https://projects.invisionapp.com/share/65UFNG4G3ZB#/screens/">InVision</a></strong>
 
 
@@ -85,7 +84,7 @@ The past two projects we have been working with Web Apps, so we decided on the F
 
 
 
-* Dev Team / Roles: 
+# Dev Team / Roles: 
    * Eddie
    * Saranda
    * Lexi
