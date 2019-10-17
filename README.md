@@ -68,8 +68,8 @@ The past two projects we have been working with Web Apps, so we decided on the F
 * Too Many Clicks
 * New Image Generator Button
 
-
-
+Image not available: :)
+  <img src="images/Fail.png" width="200">  <img src="images/Settings.png" width="200"> 
 
 
 ### Stretch Goals: 
