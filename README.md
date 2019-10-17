@@ -1,6 +1,4 @@
-# project3
-
-<mark> WEEK 1 DELIVERABLES </mark>
+# WEEK 1 DELIVERABLES
 * Plan
 * Design
 * Research
