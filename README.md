@@ -38,7 +38,7 @@ The past two projects we have been working with Web Apps, so we decided on the F
 ## Welcome User:
 * Start Button
 
-<img src="images/start.png" width="200"> 
+<img src="images/Start.png" width="200"> 
 
 
 
