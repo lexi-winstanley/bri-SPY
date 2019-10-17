@@ -19,6 +19,8 @@ The past two projects we have been working with Web Apps, so we decided on the F
 
 
 
+
+
 ## Project Management Board: (screenshot)
     Summer lemonade color schemes
 
@@ -26,7 +28,10 @@ The past two projects we have been working with Web Apps, so we decided on the F
 
 
 
-
+## Welcome Screen:
+o Title
+o Instructions
+o Login/Create Account
 
 
 
