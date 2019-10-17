@@ -51,7 +51,7 @@ The past two projects we have been working with Web Apps, so we decided on the F
     - Exit Game
    
     
-  <img src="images/play.png" width="200">  <img src="images/Settings.png" width="200"> 
+<img src="images/play.png" width="200">  <img src="images/Settings.png" width="200"> 
 
 
 ## Success Screen
