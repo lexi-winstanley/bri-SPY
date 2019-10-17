@@ -10,21 +10,21 @@ The past two projects we have been working with Web Apps, so we decided on the F
 
 ## First whiteboard skteches of the app below: 
 
-![Sketch](images/sketch.jpg)
 
+<img src="images/sketch.jpg" width="200">
 
 ## Value:
 * Entertainment
 
 
 * Dev Team / Roles: 
-   * Eddie,
-   * Saranda,
+   * Eddie
+   * Saranda
   *  Lexi
 
 # Project Management Board: (screenshot)
     Summer lemonade color schemes
 
-![Gardients](images/gardients..png =100x)
+
 
 <img src="images/gardients.png" width="200">
