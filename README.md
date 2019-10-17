@@ -1,5 +1,9 @@
 # project3
 
+# WEEK 1 DELIVERABLES
+## Plan, Design, Research
+
+
 ## .find() Mobile App Idea <h2>
 
 The main idea behid Project 3 is to create a Mobile game app that will display a picture with a hidden character using React and React Native.
@@ -58,7 +62,18 @@ The past two projects we have been working with Web Apps, so we decided on the F
 <img src="images/Win.png" width="200"> 
 
 
+## Fail Screen
+* Animation Effect
+* Too Many Clicks
+* New Image Generator Button
 
+
+
+
+
+### Stretch Goals: 
+* Rating
+* Audio for touches
 
 
 
@@ -85,6 +100,26 @@ The past two projects we have been working with Web Apps, so we decided on the F
 <li><strong><a href="https://facebook.github.io/react-native/showcase">React Native</a></strong>
 
  <!-- <li><strong><a href="https://facebook.github.io/react-native/showcase">React Native</a></strong> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
