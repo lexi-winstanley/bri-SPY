@@ -46,7 +46,7 @@ The past two projects we have been working with Web Apps, so we decided on the F
     - Exit Game
     - Best Time
     
-  <img src="images/play.png" width="200">  <img src="images/Settings.png" height="500" width="200"> 
+  <img src="images/play.png" width="200">  <img src="images/Settings.png" height="300" width="200"> 
 
 * Dev Team / Roles: 
    * Eddie
