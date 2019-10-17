@@ -44,7 +44,7 @@ The past two projects we have been working with Web Apps, so we decided on the F
     - Mute
     - Instructions
     - Exit Game
-    - Best Time
+   
     
   <img src="images/play.png" width="200">  <img src="images/Settings.png" width="200"> 
 
@@ -75,6 +75,9 @@ The past two projects we have been working with Web Apps, so we decided on the F
 
 
 
+## Techologies:
+
+- [InVision] (https://projects.invisionapp.com/share/65UFNG4G3ZB#/screens) 
 
 
 
