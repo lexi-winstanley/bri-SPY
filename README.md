@@ -13,16 +13,16 @@ The past two projects we have been working with Web Apps, so we decided on the F
 ![Sketch](images/sketch.jpg)
 
 
-Value:
+## Value:
 * Entertainment
 
 
-* Dev Team / Roles: *
-    Eddie:
-    Saranda:
-    Lexi:
+* Dev Team / Roles: 
+   * Eddie,
+   * Saranda,
+  *  Lexi
 
 # Project Management Board: (screenshot)
     Summer lemonade color schemes
 
-![Gardients](images/gardients..png)
+![Gardients](images/gardients..png =250x)
