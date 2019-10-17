@@ -80,7 +80,7 @@ The past two projects we have been working with Web Apps, so we decided on the F
 
 <li><strong><a href="https://projects.invisionapp.com/share/65UFNG4G3ZB#/screens/">InVision</a></strong>
 
-- __[InVision] (https://projects.invisionapp.com/share/65UFNG4G3ZB#/screens)__
+
 
 
 
