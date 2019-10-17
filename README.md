@@ -4,9 +4,7 @@
 * Research
 
 
-
-## .find() Mobile App Idea <h2>
-
+## .find() Mobile App Idea
 The main idea behid Project 3 is to create a Mobile game app that will display a picture with a hidden character using React and React Native.
 
 The past two projects we have been working with Web Apps, so we decided on the Final project to try something different.
@@ -23,7 +21,7 @@ The past two projects we have been working with Web Apps, so we decided on the F
 
 
 
-## Project Management Board: (screenshot)
+## Project Management Board: (screenshot): 
     Summer lemonade color schemes
 
 <img src="images/gardients.png" width="200">
@@ -42,7 +40,7 @@ The past two projects we have been working with Web Apps, so we decided on the F
 
 <img src="images/Start.png" width="200"> 
 
-## Game Play
+## Game Play:
 * Randomized Image 
 * On Image load, 'Best Time' shown if available. 
 * Settings button includes (Timer should stop when on settings page): 
@@ -54,7 +52,7 @@ The past two projects we have been working with Web Apps, so we decided on the F
 <img src="images/play.png" width="200">  <img src="images/Settings.png" width="200"> 
 
 
-## Success Screen
+## Success Screen: 
 * Animation Effect
 * Time Elapsed
 * Best Time
@@ -63,7 +61,7 @@ The past two projects we have been working with Web Apps, so we decided on the F
 <img src="images/Win.png" width="200"> 
 
 
-## Fail Screen
+## Fail Screen:
 * Animation Effect
 * Too Many Clicks
 * New Image Generator Button
@@ -124,7 +122,7 @@ Image not available:
 
 
 
-# Dev Team / Roles: 
+## Dev Team / Roles: 
 <li><strong><a href="https://github.com/edepaolo">Eddie</a></strong> 
 <li><strong><a href="https://github.com/annda7">Saranda</a></strong> 
  <li><strong><a href="https://github.com/lexi-winstanley">Lexi</a></strong>
