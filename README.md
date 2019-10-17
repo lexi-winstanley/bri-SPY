@@ -26,3 +26,5 @@ The past two projects we have been working with Web Apps, so we decided on the F
     Summer lemonade color schemes
 
 ![Gardients](images/gardients..png =100x)
+
+<img src="images/gardients.png" width="200">
