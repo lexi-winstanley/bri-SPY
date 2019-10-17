@@ -43,10 +43,11 @@ The past two projects we have been working with Web Apps, so we decided on the F
 * Settings button includes (Timer should stop when on settings page): 
     - Mute
     - Instructions
-    - Logout
     - Exit Game
     - Best Time
     
+
+    <img src="images/Settings.png" width="200"> 
 
 * Dev Team / Roles: 
    * Eddie
