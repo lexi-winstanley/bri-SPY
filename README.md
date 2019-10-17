@@ -5,7 +5,7 @@
 
 
 ## .find() Mobile App Idea
-The main idea behid Project 3 is to create a Mobile game app that will display a picture with a hidden character using React and React Native.
+The main idea behind Project 3 is to create a Mobile game app that will display a picture with a hidden character using React and React Native.
 
 The past two projects we have been working with Web Apps, so we decided on the Final project to try something different.
 
