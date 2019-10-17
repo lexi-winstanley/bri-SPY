@@ -1,6 +1,6 @@
 # project3
 
-## App Idea <h2>
+## .find() Mobile App Idea <h2>
 
 The main idea behid Project 3 is to create a Mobile game app that will display a picture with a hidden character using React and React Native.
 
@@ -15,9 +15,6 @@ The past two projects we have been working with Web Apps, so we decided on the F
 ## First whiteboard skteches of the app below: 
 
 <img src="images/sketch.jpg" width="350">
-
-
-
 
 
 
@@ -40,9 +37,18 @@ The past two projects we have been working with Web Apps, so we decided on the F
 
 <img src="images/Start.png" width="200"> 
 
-
+## Game Play
+* Randomized Image 
+* On Image load, 'Best Time' shown if available. 
+* Settings button includes (Timer should stop when on settings page): 
+    - Mute
+    - Instructions
+    - Logout
+    - Exit Game
+    - Best Time
+    
 
 * Dev Team / Roles: 
    * Eddie
    * Saranda
-  *  Lexi
+   * Lexi
