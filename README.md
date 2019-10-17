@@ -11,7 +11,7 @@ The past two projects we have been working with Web Apps, so we decided on the F
 ## First whiteboard skteches of the app below: 
 
 
-<img src="images/sketch.jpg" width="150">
+<img src="images/sketch.jpg" width="200">
 
 ## Value:
 * Entertainment
