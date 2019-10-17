@@ -29,10 +29,11 @@ The past two projects we have been working with Web Apps, so we decided on the F
 
 
 ## Welcome Screen:
-o Title
-o Instructions
-o Login/Create Account
+* Title
+* Instructions
+* Login/Create Account
 
+<img src="images/welcome.png" width="200"> 
 
 
 * Dev Team / Roles: 
