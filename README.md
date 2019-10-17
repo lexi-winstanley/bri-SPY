@@ -30,7 +30,7 @@ The past two projects we have been working with Web Apps, so we decided on the F
 
 ## Welcome Screen:
 * Title
-* Instructions
+* Instructions - * In progress* 
 * Login/Create Account
 
 <img src="images/welcome.png" width="200"> , <img src="images/create.png" width="200"> 
