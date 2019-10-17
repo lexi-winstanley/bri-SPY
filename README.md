@@ -1,7 +1,9 @@
 # project3
 
-# WEEK 1 DELIVERABLES
-## Plan, Design, Research
+<div class="warning">
+<p><em># WEEK 1 DELIVERABLES
+## Plan, Design, Research</em></p>
+</div>
 
 
 ## .find() Mobile App Idea <h2>
