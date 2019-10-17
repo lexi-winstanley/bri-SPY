@@ -48,6 +48,38 @@ The past two projects we have been working with Web Apps, so we decided on the F
     
   <img src="images/play.png" width="200">  <img src="images/Settings.png" width="200"> 
 
+
+## Success Screen
+* Animation Effect
+* Time Elapsed
+* Best Time
+* Play Again Button
+
+<img src="images/Win.png" width="200"> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 * Dev Team / Roles: 
    * Eddie
    * Saranda
