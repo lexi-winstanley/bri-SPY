@@ -77,9 +77,13 @@ The past two projects we have been working with Web Apps, so we decided on the F
 
 ## Techologies:
 
+<li><strong><a href="https://www.adobe.com/products/illustrator.html?gclid=EAIaIQobChMIw52uk6Ck5QIVAtlkCh27_Q4FEAAYASAAEgIyCPD_BwE&sdid=KKQML&mv=search&ef_id=EAIaIQobChMIw52uk6Ck5QIVAtlkCh27_Q4FEAAYASAAEgIyCPD_BwE:G:s&s_kwcid=AL!3085!3!332938048272!e!!g!!illustrator">Adobe Illustrator</a></strong>
+
+<li><strong><a href="https://facebook.github.io/react-native/showcase">React Native</a></strong>
+
 <li><strong><a href="https://projects.invisionapp.com/share/65UFNG4G3ZB#/screens/">InVision</a></strong>
 
-
+<li><strong><a href="https://facebook.github.io/react-native/showcase">React Native</a></strong>
 
 
 
