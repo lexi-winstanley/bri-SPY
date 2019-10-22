@@ -1,6 +1,8 @@
 import React from 'react';
 import {View, Text} from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
+import colors from '../constants/colors';
+import fonts from '../constants/fonts';
 
 const GamePlayHeader = props => {
     return (
@@ -22,8 +24,9 @@ const styles = EStyleSheet.create({
     }, 
     gameHeaderText: {
         width: '100%',
-        color: '#E6E6E6',
-        fontSize: '1.25rem'
+        color: colors.accent,
+        fontSize: '1.25rem',
+        fontFamily: fonts.primary
     }
 });
 

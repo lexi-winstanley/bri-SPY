@@ -1,10 +1,12 @@
 import React from 'react';
 import {View, Text, TouchableOpacity} from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
+import colors from '../constants/colors';
+import fonts from '../constants/fonts';
 
 const CustomButton = props => {
     return (
-    <TouchableOpacity onPress={() => {}}>
+    <TouchableOpacity onPress={props.buttonPress}>
         <View style={styles.button}>
             <Text style={styles.buttonText}>{props.title}</Text>
         </View>
@@ -14,7 +16,7 @@ const CustomButton = props => {
 
 const styles = EStyleSheet.create({
     button: {
-        backgroundColor: '#FC354C',
+        backgroundColor: colors.primary,
         alignSelf: 'center',
         borderRadius: '1.25rem',
         paddingHorizontal: '.75rem',
@@ -30,8 +32,10 @@ const styles = EStyleSheet.create({
         elevation: '.5rem'
     },
     buttonText: {
-        color: '#E6E6E6',
-        fontSize: '1.25rem'
+        color: colors.accent,
+        fontSize: '1.25rem',
+        textTransform: 'uppercase',
+        fontFamily: fonts.primary
     }
 });
 

@@ -1,31 +1,82 @@
-import React from 'react';
-import {Text, View, ImageBackground, Image, Button, Dimensions } from 'react-native';
+import React, {Component} from 'react';
+import {View, Dimensions, ImageBackground } from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
-import WelcomeScreen from './screens/WelcomeScreen'
-import StartGameScreen from './screens/StartGameScreen';
-import GamePlayScreen from './screens/GamePlayScreen';
+import * as Font from 'expo-font';
+import FindAppNavigator from './navigation/FindAppNavigator';
 
-const {width} = Dimensions.get('window');
-const rem = width > 340 ? 18 : 17;
-EStyleSheet.build({
-  $rem: rem,
-});
+class App extends Component {
+  state = {
+    fontLoaded: false,
+  }; 
 
-export default function App() {
-  return (
-    <ImageBackground source={require('./assets/gradientBackground.png')} style={styles.backgroundImage}>
-        {/* <WelcomeScreen/> */}
-        {/* <StartGameScreen user='lwinstan'/> */}
-        <GamePlayScreen/>
-    </ImageBackground>
-  );
+  async componentDidMount() {
+    await Font.loadAsync({
+      'barlowCondensed': require('./assets/fonts/BarlowCondensed-Regular.ttf')
+    });
+
+    this.setState({ fontLoaded: true });
+  }
+
+  render() {
+    const {width} = Dimensions.get('window');
+    const rem = width > 340 ? 18 : 17;
+    EStyleSheet.build({
+      $rem: rem,
+    });
+
+    return (
+      <View style={styles.appContainer}>
+        <ImageBackground source={require('./assets/gradientBackground.png')} style={styles.backgroundImage}>
+      {this.state.fontLoaded ? (<FindAppNavigator style={styles.transparent}/>) : null}
+      </ImageBackground>
+      </View>
+    )
+}
 }
 
 const styles = EStyleSheet.create({
-  backgroundImage: {
+  appContainer: {
+      flex: 1
+    },
+    backgroundImage: {
       flex: 1,
       width: null,
       height: null,
       resizeMode: 'cover'
     }
 });
+
+export default App;
+
+
+
+// const {width} = Dimensions.get('window');
+// const rem = width > 340 ? 18 : 17;
+// EStyleSheet.build({
+//   $rem: rem,
+// });
+
+// const fetchFonts = () => {
+//   Font.loadAsync({
+//     'barlowCondensed': require('./assets/fonts/BarlowCondensed-Regular.ttf')
+//   });
+// }
+
+// export default function App() {
+
+
+//   return (
+        //<FindAppNavigator/>
+//   );
+// }
+
+// const styles = EStyleSheet.create({
+//   appContainer: {
+//       flex: 1,
+//       width: null,
+//       height: null,
+//       resizeMode: 'cover'
+//     }
+// });
+
+// export default App;
