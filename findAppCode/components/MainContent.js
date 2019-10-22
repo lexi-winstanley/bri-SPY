@@ -13,6 +13,7 @@ const mainContent = props => {
 const styles = EStyleSheet.create({
     mainContainer: {
         flex: 1,
+        justifyContent: 'center'
     }
 });
 

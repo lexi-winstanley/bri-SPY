@@ -1,6 +1,8 @@
 import React from 'react';
 import {View, Text} from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
+import colors from '../constants/colors';
+import fonts from '../constants/fonts';
 
 const CenterText = props => {
     return (
@@ -22,9 +24,10 @@ const styles = EStyleSheet.create({
         alignItems: 'center'
     },
     messageText: {
-        color: '#E6E6E6',
+        color: colors.accent,
         fontSize: '1.25rem',
-        textAlign: 'center'
+        textAlign: 'center',
+        fontFamily: fonts.primary
     }
 });
 
