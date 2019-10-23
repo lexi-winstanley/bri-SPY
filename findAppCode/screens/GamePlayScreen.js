@@ -7,6 +7,7 @@ import GamePlayContainer from '../components/GamePlayContainer';
 
 //import ImageScrollZoom from '../components/ImageScrollZoom';
 import ImageScrollZoomMVP from '../components/ImageScrollZoomMVP';
+import ZoomableImage from '../components/ImageZoom';
 
 const GamePlayScreen = props => {
     return (

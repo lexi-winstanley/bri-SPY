@@ -28,7 +28,6 @@ const ImageScrollZoomMVP = props => {
 
 const styles = EStyleSheet.create({
     gamePlayModal: {
-        height: '100%'
     }
 });
 
