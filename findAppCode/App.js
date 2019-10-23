@@ -1,12 +1,19 @@
 import React, {Component} from 'react';
-import {View, Dimensions, ImageBackground } from 'react-native';
+import {Dimensions, ImageBackground } from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
 import * as Font from 'expo-font';
-import FindAppNavigator from './navigation/FindAppNavigator';
+import WelcomeScreen from './screens/WelcomeScreen';
+import SignInScreen from './screens/SignInScreen';
+import CreateAccountScreen from './screens/CreateAccountScreen';
+import StartGameScreen from './screens/StartGameScreen';
+import GamePlayScreen from './screens/GamePlayScreen';
 
 class App extends Component {
   state = {
     fontLoaded: false,
+    page: 'welcome',
+    username: '',
+    password: ''
   }; 
 
   async componentDidMount() {
@@ -15,6 +22,16 @@ class App extends Component {
     });
 
     this.setState({ fontLoaded: true });
+  };
+
+  changeScreen = pageName => {
+    this.setState({page: pageName});
+  }
+
+  inputSubmitted = (pageName, enteredUsername, enteredPassword) => {
+    this.setState({page: pageName, username: enteredUsername, password: enteredPassword});
+    console.log(this.state.username); 
+    console.log(this.state.password); 
   }
 
   render() {
@@ -24,20 +41,34 @@ class App extends Component {
       $rem: rem,
     });
 
+    let content;
+    switch (this.state.page) {
+      case 'welcome': 
+      content = <WelcomeScreen buttonPress={this.changeScreen}/>;
+      break;
+      case 'signIn': 
+      content = <SignInScreen buttonPress={this.inputSubmitted}/>;
+      break;
+      case 'createAccount': 
+      content = <CreateAccountScreen buttonPress={this.inputSubmitted}/>;
+      break;
+      case 'startGame': 
+      content = <StartGameScreen buttonPress={this.changeScreen} user={this.state.username}/>;
+      break;
+      case 'gamePlay': 
+      content = <GamePlayScreen buttonPress={this.changeScreen}/>;
+      break;
+    }
+
     return (
-      <View style={styles.appContainer}>
-        <ImageBackground source={require('./assets/gradientBackground.png')} style={styles.backgroundImage}>
-      {this.state.fontLoaded ? (<FindAppNavigator style={styles.transparent}/>) : null}
+      <ImageBackground source={require('./assets/gradientBackground.png')} style={styles.backgroundImage}>
+        {this.state.fontLoaded ? content : null}
       </ImageBackground>
-      </View>
     )
 }
 }
 
 const styles = EStyleSheet.create({
-  appContainer: {
-      flex: 1
-    },
     backgroundImage: {
       flex: 1,
       width: null,
@@ -47,36 +78,3 @@ const styles = EStyleSheet.create({
 });
 
 export default App;
-
-
-
-// const {width} = Dimensions.get('window');
-// const rem = width > 340 ? 18 : 17;
-// EStyleSheet.build({
-//   $rem: rem,
-// });
-
-// const fetchFonts = () => {
-//   Font.loadAsync({
-//     'barlowCondensed': require('./assets/fonts/BarlowCondensed-Regular.ttf')
-//   });
-// }
-
-// export default function App() {
-
-
-//   return (
-        //<FindAppNavigator/>
-//   );
-// }
-
-// const styles = EStyleSheet.create({
-//   appContainer: {
-//       flex: 1,
-//       width: null,
-//       height: null,
-//       resizeMode: 'cover'
-//     }
-// });
-
-// export default App;
