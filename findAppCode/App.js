@@ -74,10 +74,6 @@ const styles = EStyleSheet.create({
       width: null,
       height: null,
       resizeMode: 'cover'
-    }, 
-    safeArea: {
-      flex: 1,
-      backgroundColor: 'rgba(52, 52, 52, 0)'
     }
 });
 
