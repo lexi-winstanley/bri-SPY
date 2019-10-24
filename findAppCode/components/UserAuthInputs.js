@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, KeyboardAvoidingView, Platform } from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
 import colors from '../constants/colors';
 import fonts from '../constants/fonts';
@@ -15,6 +15,7 @@ const CustomInputSubmit = props => {
         setEnteredPassword(enteredText);
     }
     return (
+        <KeyboardAvoidingView style={styles.keyboardView} behavior={Platform.OS === 'ios' ? 'padding' : null}>
         <MainContent>
             <View style={styles.inputContainer}>
                 <Text style={styles.inputLabel}>username:</Text>
@@ -32,15 +33,14 @@ const CustomInputSubmit = props => {
                 </TouchableOpacity>
             </View>
         </MainContent>
-
-
-
-
-
+        </KeyboardAvoidingView>
     );
 };
 
 const styles = EStyleSheet.create({
+    keyboardView: {
+        flex: 1
+    },
     inputContainer: {
         flex: 0,
         marginBottom: '1rem'
