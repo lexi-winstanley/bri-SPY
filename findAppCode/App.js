@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Dimensions, ImageBackground } from 'react-native';
+import {Dimensions, ImageBackground, SafeAreaView } from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
 import * as Font from 'expo-font';
 import WelcomeScreen from './screens/WelcomeScreen';
@@ -62,7 +62,7 @@ class App extends Component {
 
     return (
       <ImageBackground source={require('./assets/gradientBackground.png')} style={styles.backgroundImage}>
-        {this.state.fontLoaded ? content : null}
+          {this.state.fontLoaded ? content : null}
       </ImageBackground>
     )
 }
@@ -74,6 +74,10 @@ const styles = EStyleSheet.create({
       width: null,
       height: null,
       resizeMode: 'cover'
+    }, 
+    safeArea: {
+      flex: 1,
+      backgroundColor: 'rgba(52, 52, 52, 0)'
     }
 });
 
