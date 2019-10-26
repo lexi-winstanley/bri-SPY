@@ -7,7 +7,7 @@ import ImageViewer from 'react-native-image-zoom-viewer';
 const images = [{
     props: {
         url: '',
-        source: require('../assets/ImageIcon.png')
+        source: require('../assets/image1.png')
     }
 }]
 

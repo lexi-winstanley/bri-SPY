@@ -7,7 +7,7 @@ import MainContent from '../components/MainContent';
 import CenterText from '../components/CenterText';
 import CenterIcon from '../components/CenterIcon';
 import ButtonContainer from '../components/ButtonContainer';
-import CustomButton from '../components/CustomButton';
+import GoogleSignInButton from '../components/GoogleSignIn';
 
 const WelcomeScreen = props => {
     return (
@@ -18,8 +18,9 @@ const WelcomeScreen = props => {
                 <CenterIcon/>
             </MainContent>
             <ButtonContainer>
-                <CustomButton title='Sign In' buttonPress={props.buttonPress} pageName='signIn'/>
-                <CustomButton title='Create Account' buttonPress={props.buttonPress} pageName='createAccount'/>
+                {/* <CustomButton title='Sign In' buttonPress={props.buttonPress} pageName='signIn'/>
+                <CustomButton title='Create Account' buttonPress={props.buttonPress} pageName='createAccount'/> */}
+                <GoogleSignInButton title="Sign in with Google" buttonPress={props.buttonPress}/>
             </ButtonContainer>
         </View>
     );
