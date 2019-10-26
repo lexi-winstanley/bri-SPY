@@ -15,9 +15,16 @@ class ImageScrollZoom extends Component {
         this.animatedPositionY = new Animated.Value(0);
         this.lastZoomDistance = null;
 
+        this.viewWidth = 0;
+        this.viewHeight = 0;
+        this.imageWidth = 0;
+        this.imageHeight = 0;
+
         this.panResponder = null; 
 
         this.render.bind(this);
+        this.onPanResponderLayout.bind(this);
+        this.onImageLayout.bind(this);
     }
 
     componentWillMount() {
@@ -38,8 +45,6 @@ class ImageScrollZoom extends Component {
                     })
                     avgX /= numChangedTouches;
                     avgY /= numChangedTouches;
-                    console.log("AvgX: " + avgX)
-                    console.log("AvgY:" + avgY)
 
                     if (numChangedTouches === 1) {
                         if (new Date().getTime() - this.lastClickTime < 50) {
@@ -56,10 +61,10 @@ class ImageScrollZoom extends Component {
                     } else if (numChangedTouches === 2) {
                         let touches = evt.nativeEvent.changedTouches;
 
-                        let xWidth = Math.abs(touches[0].pageX - touches[1].pageX);
-                        let yWidth = Math.abs(touches[0].pageY - touches[1].pageY);
+                        let xWidth = Math.abs(touches[0].locationX - touches[1].locationX);
+                        let yWidth = Math.abs(touches[0].locationY - touches[1].locationY);
                         let distance = Math.sqrt(Math.pow(xWidth, 2) + Math.pow(yWidth, 2));
-
+                        
                         if (this.lastZoomDistance !== null) {
                             let distanceDiff = (distance - this.lastZoomDistance) / 150;
 
@@ -70,16 +75,43 @@ class ImageScrollZoom extends Component {
                             this.animatedScale.setValue(this.scale);
 
                             const deltaScale = this.scale/oldScale;
-                            this.lastPositionX *= deltaScale;
-                            this.lastPositionY *= deltaScale;        
+                            this.lastPositionX -= (this.viewWidth/2) * deltaScale;
+                            this.lastPositionY -= (this.viewHeight/2) * deltaScale;    
+                            console.log(`lastXif: ${this.lastPositionX}`);
+                            console.log(`lastYif: ${this.lastPositionY}`);  
+                            console.log("View widthif: " + this.viewWidth);
+                            console.log("View heightif: " + this.viewHeight);  
                             this.animatedPositionX.setValue(this.lastPositionX);
                             this.animatedPositionY.setValue(this.lastPositionY);
                         } else {
-                            let xCenter = (touches[0].pageX + touches[1].pageX) /2 - 250;
-                            let yCenter = (touches[0].pageY + touches[1].pageY) /2 - 250;
+                            let xCenter = (touches[0].locationX + touches[1].locationX) /2;
+                            let yCenter = (touches[0].locationY + touches[1].locationY) /2;
     
-                            this.lastPositionX = xCenter;
-                            this.lastPositionY = yCenter;
+                            console.log(`xCenter: ${xCenter}`);
+                            console.log(`yCenter: ${yCenter}`);
+                            
+                            console.log(`lastX: ${this.lastPositionX}`);
+                            console.log(`lastY: ${this.lastPositionY}`);
+
+                            this.lastPositionX = ((xCenter - this.lastPositionX) - this.viewWidth/2) * -1;
+                            this.lastPositionY = ((yCenter - this.lastPositionY) - this.viewHeight/2) * -1;
+
+                            console.log(`lastNewX: ${this.lastPositionX}`);
+                            console.log(`lastNewY: ${this.lastPositionY}`);
+                    
+                            if (this.imageWidth * this.scale - this.viewWidth + this.lastPositionX <= 0) {
+                                this.lastPositionX = this.viewWidth - (this.imageWidth * this.scale);
+                            }
+                            else if (this.lastPositionX > 0) {
+                                this.lastPositionX = 0;
+                            }
+                            if (this.imageHeight * this.scale - this.viewHeight + this.lastPositionY <= 0) {
+                                this.lastPositionY = this.viewHeight - (this.imageHeight * this.scale);
+                            } 
+                            else if (this.lastPositionY > 0) {
+                                this.lastPositionY = 0;
+                            }
+
                             this.animatedPositionX.setValue(this.lastPositionX);
                             this.animatedPositionY.setValue(this.lastPositionY);
                             console.log("X: " + this.lastPositionX)
@@ -92,6 +124,22 @@ class ImageScrollZoom extends Component {
 
                 }
             })
+    }
+
+    onPanResponderLayout(event) {
+        var {x, y, width, height} = event.nativeEvent.layout;
+        console.log("View width: " + width);
+        console.log("View height" + height);
+        this.viewWidth = width;
+        this.viewHeight = height;
+    }
+
+    onImageLayout(event) {
+        var {x, y, width, height} = event.nativeEvent.layout;
+        console.log("Image width: " + width);
+        console.log("Image height: " + height);
+        this.imageWidth = width;
+        this.imageHeight = height;
     }
 
     render() {
@@ -109,10 +157,10 @@ class ImageScrollZoom extends Component {
             ]
         };
         return (
-            <View {...this.panResponder.panHandlers}>
-                <Animated.View style={animationConfig}>
-                    <View style={styles.imageContainer}>
-                        <Image source={require('../assets/image2.png')} style={styles.image}/>
+            <View onLayout={this.onPanResponderLayout.bind(this)} {...this.panResponder.panHandlers}>
+                <Animated.View style={animationConfig} pointerEvents='none'>
+                    <View style={styles.imageContainer} pointerEvents='none'>
+                        <Image pointerEvents='none' onLayout={this.onImageLayout.bind(this)} source={require('../assets/image2.png')} style={styles.image}/>
                     </View>
                 </Animated.View>
             </View>
