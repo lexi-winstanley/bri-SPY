@@ -78,7 +78,7 @@ class App extends Component {
           photoUrl: result.user.photoUrl
         })
         console.log(result);
-        this.postUserInfo(result.user.name);
+        // this.postUserInfo(result.user.name);
       } else {
         console.log('cancelled');
       }
