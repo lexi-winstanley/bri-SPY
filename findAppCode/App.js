@@ -18,12 +18,12 @@ class App extends Component {
         super(props)
         this.state = {
           signedIn: false, 
-          name: "", 
-          photoUrl: "", 
+          name: '', 
+          id: '',
+          photoUrl: '', 
           fontLoaded: false,
           page: 'welcome',
-          username: '',
-          password: ''}
+          }
     };
 
   async componentDidMount() {
@@ -35,20 +35,23 @@ class App extends Component {
 
   apiRoot = 'http://192.168.1.18:8080/user';
 
-  getUserInfo = async () => {
+  getUserInfo = async (userId) => {
     try {
       let response = await fetch(
-        this.apiRoot,
+        `${this.apiRoot}/${userId}`,
       );
       let responseJson = await response.json();
-      return responseJson;
+      if (responseJson === null) {
+        this.postUserInfo(userId);
+      }
       console.log(responseJson);
+      return responseJson;  
     } catch (error) {
       console.error(error);
     }
   }
 
-  postUserInfo = (userName) => {
+  postUserInfo = (stateId) => {
     console.log('i got called');
     fetch(this.apiRoot, {
       method: 'POST',
@@ -57,7 +60,7 @@ class App extends Component {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        name: userName
+        userId: stateId
       }),
     });
   }
@@ -75,10 +78,11 @@ class App extends Component {
         this.setState({
           signedIn: true,
           name: result.user.name,
+          id: result.user.id,
           photoUrl: result.user.photoUrl
         })
         console.log(result);
-        // this.postUserInfo(result.user.name);
+        this.getUserInfo(result.user.id);
       } else {
         console.log('cancelled');
       }
@@ -87,16 +91,9 @@ class App extends Component {
     }
 }
 
-
   changeScreen = pageName => {
     this.setState({ page: pageName });
   }
-
-  // inputSubmitted = (pageName, enteredUsername, enteredPassword) => {
-  //   this.setState({ page: pageName, username: enteredUsername, password: enteredPassword });
-  //   console.log(this.state.username);
-  //   console.log(this.state.password);
-  // }
 
   render() {
     const { width } = Dimensions.get('window');
@@ -115,12 +112,6 @@ class App extends Component {
           content = <WelcomeScreen buttonPress={this.signIn} />;
         }
         break;
-      // case 'signIn':
-      //   content = <SignInScreen buttonPress={this.inputSubmitted} />;
-      //   break;
-      // case 'createAccount':
-      //   content = <CreateAccountScreen buttonPress={this.inputSubmitted} />;
-      //   break;
       case 'startGame':
         content = <StartGameScreen buttonPress={this.changeScreen} user={this.state.name} />;
         break;
