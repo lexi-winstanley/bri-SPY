@@ -7,15 +7,15 @@ import fonts from '../constants/fonts';
 const CustomButton = props => {
     return (
     <TouchableOpacity onPress={() => props.buttonPress(props.pageName)}>
-        <View style={styles.button}>
-            <Text style={styles.buttonText}>{props.title}</Text>
+        <View style={styles[props.buttonColor]}>
+            <Text style={styles[props.buttonTextColor]}>{props.title}</Text>
         </View>
     </TouchableOpacity>
     );
 };
 
 const styles = EStyleSheet.create({
-    button: {
+    buttonPink: {
         backgroundColor: colors.primary,
         alignSelf: 'center',
         borderRadius: '1.25rem',
@@ -31,8 +31,30 @@ const styles = EStyleSheet.create({
         shadowRadius: '.2rem',
         elevation: '.5rem'
     },
-    buttonText: {
+    buttonLight: {
+        backgroundColor: colors.accent,
+        alignSelf: 'center',
+        borderRadius: '1.25rem',
+        paddingHorizontal: '.75rem',
+        paddingTop: '.25rem',
+        paddingBottom: '.3rem',
+        marginHorizontal: '.5rem',
+        marginTop: '.5rem',
+        marginBottom: '1rem',
+        shadowColor: 'black',
+        shadowOffset: {width: '.2rem',height: '.2rem'},
+        shadowOpacity: .5,
+        shadowRadius: '.2rem',
+        elevation: '.5rem'
+    },
+    buttonTextPink: {
         color: colors.accent,
+        fontSize: '1.25rem',
+        textTransform: 'uppercase',
+        fontFamily: fonts.primary
+    },
+    buttonTextLight: {
+        color: colors.menu,
         fontSize: '1.25rem',
         textTransform: 'uppercase',
         fontFamily: fonts.primary
