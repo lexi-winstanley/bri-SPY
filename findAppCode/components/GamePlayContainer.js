@@ -15,9 +15,9 @@ const GamePlayContainer = props => {
 const styles = EStyleSheet.create({
     gamePlayContainer: {
         flex: 1,
-        marginHorizontal: 10,
-        marginBottom: 10,
-        marginTop: 10,
+        marginHorizontal: '1rem',
+        marginBottom: '1rem',
+        marginTop: '.5rem',
         overflow: 'hidden',
         flexDirection: 'row'
     }

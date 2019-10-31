@@ -20,6 +20,7 @@ class App extends Component {
           signedIn: false, 
           name: '', 
           id: '',
+          accessToken: '',
           photoUrl: '', 
           fontLoaded: false,
           page: 'welcome',
@@ -33,7 +34,7 @@ class App extends Component {
     this.setState({ fontLoaded: true });
   };
 
-  apiRoot = 'http://192.168.1.18:8080/user';
+  apiRoot = 'http://10.156.24.99:8080/user';
 
   getUserInfo = async (userId) => {
     try {
@@ -65,8 +66,6 @@ class App extends Component {
     });
   }
 
-
-
   signIn = async () => {
     try {
       const result = await Google.logInAsync({
@@ -79,6 +78,7 @@ class App extends Component {
           signedIn: true,
           name: result.user.name,
           id: result.user.id,
+          accessToken: result.accessToken,
           photoUrl: result.user.photoUrl
         })
         console.log(result);
@@ -89,11 +89,26 @@ class App extends Component {
     } catch (e) {
       console.log('error', e);
     }
-}
+  }
+
+  signOut = async (pageName) => {
+    try {
+      const config = {
+        androidClientId: '581960141699-006fes5kkb1tfp6gte345sl6vd2eboqf.apps.googleusercontent.com',
+        iosClientId: '581960141699-aptj7u212c0ggb15epfl9psmo0pvktog.apps.googleusercontent.com'
+      };
+        await Google.logOutAsync(this.state.accessToken, { ...config });
+        this.changeScreen(pageName);
+    } catch (e) {
+      console.log('error', e);
+    }
+  }
 
   changeScreen = pageName => {
     this.setState({ page: pageName });
   }
+
+
 
   render() {
     const { width } = Dimensions.get('window');
@@ -106,6 +121,7 @@ class App extends Component {
     switch (this.state.page) {
       case 'welcome':
         // content = <GamePlayScreen buttonPress={this.changeScreen}/>;
+        //content = <StartGameScreen buttonPress={this.changeScreen} user={this.state.name} />;
         if (this.state.signedIn === true) {
           content = <StartGameScreen buttonPress={this.changeScreen} user={this.state.name} />;
         } else {
@@ -113,7 +129,7 @@ class App extends Component {
         }
         break;
       case 'startGame':
-        content = <StartGameScreen buttonPress={this.changeScreen} user={this.state.name} />;
+        content = <StartGameScreen buttonPress={this.changeScreen} user={this.state.name} menuPress={this.signOut}/>;
         break;
       case 'gamePlay':
         content = <GamePlayScreen buttonPress={this.changeScreen} />;
@@ -127,9 +143,6 @@ class App extends Component {
       <LinearGradient colors={['#680A4D', '#FC354C']} start={[0, .9]} end={[1, 0]} style={{ flex: 1 }}>
         {this.state.fontLoaded ? content : null}
       </LinearGradient>
-      // <ImageBackground source={require('./assets/gradientBackground.png')} style={styles.backgroundImage}>
-      // {this.state.fontLoaded ? content : null}      
-      // </ImageBackground>
     )
   }
 }
