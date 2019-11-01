@@ -35,7 +35,8 @@ const styles = EStyleSheet.create({
         width: '100%',
         color: colors.accent,
         fontSize: '1.25rem',
-        fontFamily: fonts.primary
+        fontFamily: fonts.primary,
+        textTransform: 'uppercase'
     }
 });
 

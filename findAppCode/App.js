@@ -5,7 +5,6 @@ import EStyleSheet from 'react-native-extended-stylesheet';
 import * as Font from 'expo-font';
 import { LinearGradient } from 'expo-linear-gradient';
 
-import CustomButton from './components/CustomButton';
 import WelcomeScreen from './screens/WelcomeScreen';
 import SignInScreen from './screens/SignInScreen';
 import CreateAccountScreen from './screens/CreateAccountScreen';
@@ -121,7 +120,7 @@ class App extends Component {
     switch (this.state.page) {
       case 'welcome':
         // content = <GamePlayScreen buttonPress={this.changeScreen}/>;
-        //content = <StartGameScreen buttonPress={this.changeScreen} user={this.state.name} />;
+        // content = <StartGameScreen buttonPress={this.changeScreen} user={this.state.name} />;
         if (this.state.signedIn === true) {
           content = <StartGameScreen buttonPress={this.changeScreen} user={this.state.name} />;
         } else {
