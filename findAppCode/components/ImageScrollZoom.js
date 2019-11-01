@@ -202,6 +202,7 @@ class ImageScrollZoom extends Component {
         console.log("Image height: " + height);
         this.imageWidth = width;
         this.imageHeight = height;
+        this.props.toggleTimer();
     }
 
     render() {
