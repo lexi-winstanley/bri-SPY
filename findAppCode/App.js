@@ -120,12 +120,12 @@ class App extends Component {
     switch (this.state.page) {
       case 'welcome':
         // content = <GamePlayScreen buttonPress={this.changeScreen}/>;
-        // content = <StartGameScreen buttonPress={this.changeScreen} user={this.state.name} />;
-        if (this.state.signedIn === true) {
-          content = <StartGameScreen buttonPress={this.changeScreen} user={this.state.name} />;
-        } else {
-          content = <WelcomeScreen buttonPress={this.signIn} />;
-        }
+        content = <StartGameScreen buttonPress={this.changeScreen} user={this.state.name} />;
+        // if (this.state.signedIn === true) {
+        //   content = <StartGameScreen buttonPress={this.changeScreen} user={this.state.name} />;
+        // } else {
+        //   content = <WelcomeScreen buttonPress={this.signIn} />;
+        // }
         break;
       case 'startGame':
         content = <StartGameScreen buttonPress={this.changeScreen} user={this.state.name} menuPress={this.signOut}/>;
