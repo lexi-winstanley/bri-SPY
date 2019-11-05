@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
-import { View, Image, ScrollView, PanResponder, PanResponderInstance, Animated} from 'react-native';
-import ImageResizeMode from 'react-native/Libraries/Image/ImageResizeMode'
+import { View, Image, PanResponder, Animated} from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
 
 class ImageScrollZoom extends Component {
@@ -104,14 +103,11 @@ class ImageScrollZoom extends Component {
                             baseScale = this.rawImageHeight / this.viewHeight;
                         }
 
-                        //let actualImageWidth = this.imageWidth - 2*barSizeX;
-                        //let scaleX = this.rawImageWidth / actualImageWidth
 
                         let minX = this.viewWidth/2 * (this.scale - 1);
                         let minY = this.viewHeight/2 * (this.scale - 1)
                         
                         let imageTouchedX = (minX - this.lastPositionX) + (touchX - barSizeX);
-                        // let imageTouchedX = (minX - this.lastPositionX) - barSizeX + touchX*baseScale/this.scale;
                         let imageTouchedY = (minY - this.lastPositionY) + (touchY - barSizeY);
 
                         if (new Date().getTime() - this.lastClickTime < 250) {
@@ -124,7 +120,7 @@ class ImageScrollZoom extends Component {
                             console.log(`barX: ${barSizeX}`);
                             console.log(`barY: ${barSizeY}`);
                             console.log(`bounding: ${this.viewWidth/2 * (this.scale - 1)}`);
-                            let allowedErrorX =  37.5* this.scale / this.iconWidth;//this.iconWidth * 3/this.scale;
+                            let allowedErrorX =  37.5* this.scale / this.iconWidth;
                             let allowedErrorY = 37.5 * this.scale / this.iconHeight;
 
                             console.log(`dx: ${Math.abs(this.iconFromLeft * this.scale/baseScale - imageTouchedX)} dy: ${Math.abs(this.iconFromTop * this.scale/baseScale - imageTouchedY)}`)
@@ -144,74 +140,12 @@ class ImageScrollZoom extends Component {
                                 }
                             }
                         }
-                        
-                        // const aspectX = this.viewWidth / this.rawImageWidth;
-                        // const aspectY = this.viewHeight / this.rawImageHeight;
-                        // let barWidthX = 0;
-                        // let barWidthY = 0;
-                        // let renderedAspect; 
-                        // if (aspectX === aspectY) {
-                        //     //no bars
-                        //     barWidthX = 0;
-                        //     barWidthY = 0; 
-                        //     renderedAspect = aspectX;
-                        // } else if (aspectX < aspectY) {
-                        //     //bars on top/bottom
-                        //     barWidthY = (this.viewHeight - (this.rawImageHeight * aspectX))/2
-                        //     renderedAspect = aspectX;
-                        // }else if (aspectX > aspectY) {
-                        //     //bars on right/left
-                        //     barWidthX = (this.viewWidth - (this.rawImageWidth * aspectY))/2
-                        //     renderedAspect = aspectY;
-                        // }
-
-
-                   
-                        // if (new Date().getTime() - this.lastClickTime < 250) {
-                        //     console.log(`double click!`);
-                        //     console.log(`doubleTouchX: ${evt.nativeEvent.locationX} doubleTouchY: ${evt.nativeEvent.locationY}`);
-                        //     console.log(`renderedAspect: ${renderedAspect}`);
-                        //     console.log(`barX: ${barWidthX}`);
-                        //     console.log(`barY: ${barWidthY}`);
-                        //     console.log(`bounding: ${this.viewWidth/2 * (this.scale - 1)}`);
-                        //     let conditionX = this.iconFromLeft * this.scale + (barWidthX * this.scale);
-                        //     let allowedErrorX = this.iconWidth * 1/this.scale;
-                        //     console.log('scale: ' + this.scale);
-                        //     console.log('conditionX: ' + conditionX);
-                        //     console.log(conditionX - allowedErrorX);
-                        //     console.log(conditionX + allowedErrorX);
-
-                        //     let conditionY = this.iconFromTop * this.scale + (barWidthY * this.scale);
-                        //     let allowedErrorY = this.iconHeight * 1/this.scale;
-                        //     console.log('scale: ' + this.scale);
-                        //     console.log('conditionY: ' + conditionY);
-                        //     console.log(conditionY - allowedErrorY);
-                        //     console.log(conditionY + allowedErrorY);
-                
-                        //     if (conditionX - allowedErrorX < touchX < conditionX + allowedErrorX) {
-                        //         console.log(`doubleTouchX: ${touchX} doubleTouchY: ${touchY}`);
-                        //         console.log(`condition: ${conditionX}`);
-                        //         console.log('icon found');
-                        //         console.log(this.props);
-                        //         this.props.endTimer();
-                        //         checkBest = async () => {
-                        //             const newBest = await this.props.getBestTime();
-                        //             if (newBest === true) {
-                        //                 this.props.buttonPress('newBest');
-                        //             } else {
-                        //                 this.props.buttonPress(this.props.pageName);
-                        //             } 
-                        //         }
-                        //     }
-                        // }
                     }
                     this.lastClickTime = new Date().getTime();
                 },
                 onPanResponderMove: (evt, gestureState) => {
                     let numChangedTouches = evt.nativeEvent.changedTouches.length;
                     if (numChangedTouches === 1) {
-                        // let diffX = gestureState.dx - this.lastPositionX;
-                        // let diffY = gestureState.dy - this.lastPositionY;
                         this.lastPositionX += (gestureState.dx - this.lastdx);
                         this.lastPositionY += (gestureState.dy - this.lastdy);
                         this.lastdx = gestureState.dx;
