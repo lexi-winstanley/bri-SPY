@@ -128,8 +128,8 @@ class App extends Component {
     let content;
     switch (this.state.page) {
       case 'welcome':
-        // content = <GamePlayScreen buttonPress={this.changeScreen}/>;
-        content = <ThumbnailScreen buttonPress={this.changeScreenImage} user={this.state.name} menuPress={this.signOut} selectedImage={this.state.imageId}/>;
+        content = <GamePlayScreen buttonPress={this.changeScreen}/>;
+        //content = <ThumbnailScreen buttonPress={this.changeScreenImage} user={this.state.name} menuPress={this.signOut} selectedImage={this.state.imageId}/>;
         // content = <StartGameScreen buttonPress={this.changeScreen} user={this.state.name} />;
         // if (this.state.signedIn === true) {
         //   content = <ThumbnailScreen buttonPress={this.changeScreen} user={this.state.name} menuPress={this.signOut}/>;
