@@ -134,7 +134,15 @@ class ImageScrollZoom extends Component {
                                 console.log(`condition: ${conditionX}`);
                                 console.log('icon found');
                                 console.log(this.props);
-                                this.props.buttonPress(this.props.pageName);
+                                this.props.endTimer();
+                                checkBest = async () => {
+                                    const newBest = await this.props.getBestTime();
+                                    if (newBest === true) {
+                                        this.props.buttonPress('newBest');
+                                    } else {
+                                        this.props.buttonPress(this.props.pageName);
+                                    } 
+                                }
                             }
                         }
                     }

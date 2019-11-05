@@ -2,7 +2,7 @@ import React from 'react';
 import {View} from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
 
-const mainContent = props => {
+const MainContent = props => {
     return (
         <View style={styles.mainContainer}>
             {props.children}
@@ -17,4 +17,4 @@ const styles = EStyleSheet.create({
     }
 });
 
-export default mainContent;
+export default MainContent;

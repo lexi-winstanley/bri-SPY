@@ -8,11 +8,11 @@ import CenterIcon from '../components/CenterIcon';
 import ButtonContainer from '../components/ButtonContainer';
 import CustomButton from '../components/CustomButton'
 
-const WinScreen = props => {
+const newBestScreen = props => {
     return (
         <View style={styles.container}>
             <MainContent>
-                <CenterText message='Congratulations! You found the icon!'/>
+                <CenterText message='Congratulations! You found the icon! New Best Time!'/>
                 <CenterIcon/>
             </MainContent>
             <ButtonContainer>
@@ -28,4 +28,4 @@ const styles = EStyleSheet.create({
     }
 });
 
-export default WinScreen;
+export default newBestScreen;

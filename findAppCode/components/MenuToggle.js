@@ -8,7 +8,8 @@ const MenuToggle = props => {
     return (
         <TouchableOpacity onPress={() => props.menuToggle(props.visibleToggle)} style={styles[props.version]}>
         <View style={styles.toggleContainer}>
-            <Text style={styles.labelText}>{props.label}</Text>
+            {props.label ? <Text style={styles.labelText}>{props.label}</Text> : null }
+            {/* <Text style={styles.labelText}>{props.label}</Text> */}
             <Image style={styles.settingsImage} source={props.imageName} resizeMode='contain' />
         </View>
         </TouchableOpacity>
@@ -27,7 +28,11 @@ const styles = EStyleSheet.create({
     outerContainerStart: {
         flex: 1,
         flexDirection: 'row',  
-        alignItems: 'flex-end' 
+        alignItems: 'flex-end'
+    },
+    outerContainerThumbnail: {
+        flexDirection: 'row',  
+        alignItems: 'flex-end'
     },
     toggleContainer: {
         marginHorizontal: '.5rem',

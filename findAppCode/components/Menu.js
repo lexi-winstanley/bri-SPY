@@ -11,6 +11,8 @@ import MenuToggle from '../components/MenuToggle';
 
 const Menu = props => {
   let button;
+
+
   switch (props.desiredButton) {
     case 'exit':
       button = <ButtonContainer><CustomButton title='Exit Game' buttonPress={props.buttonPress} pageName='startGame' buttonColor='buttonLight' buttonTextColor='buttonTextLight'/></ButtonContainer>;
