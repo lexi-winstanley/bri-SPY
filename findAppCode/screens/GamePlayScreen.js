@@ -16,7 +16,8 @@ const GamePlayScreen = props => {
         setMenuVisible(bool);
         toggleTimer();
     }
-    const [seconds, setSeconds] = useState(0);
+  
+    const [totalSeconds, setTotalSeconds] = useState(0);
     const [timerActive, setTimerActive] = useState(false);
     const toggleTimer = () => {
         setTimerActive(!timerActive);
@@ -28,17 +29,27 @@ const GamePlayScreen = props => {
         console.log('timer ended');
     }
 
+    const buildTime = num => {
+        stringNum = String(num);
+        return stringNum.length === 1 ? '0' + stringNum : stringNum;
+    }
+
     useEffect(() => {
         let interval = null;
         if (timerActive) {
             interval = setInterval(() => {
-                setSeconds(seconds => seconds + 1);
+                setTotalSeconds(totalSeconds => totalSeconds + 1);
             }, 1000);
         } else if (!timerActive && seconds !== 0) {
             clearInterval(interval);
         }
         return () => clearInterval(interval);
-    }, [timerActive, seconds]);
+    }, [timerActive, totalSeconds]);
+
+    let hours = buildTime(Math.floor(totalSeconds / 3600));
+    let minutes = buildTime(Math.floor((totalSeconds - hours * 3600) / 60));
+    let seconds = buildTime(totalSeconds - (hours * 3600 + minutes * 60));
+    let displayTime = `${hours}:${minutes}:${seconds}`;
 
     postNewTime = () => {
         console.log('posted');
@@ -83,9 +94,9 @@ const GamePlayScreen = props => {
 
     return (
         <View style={styles.container}>
-            <GamePlayHeader bestTime='2:53' currentTime={seconds} menuToggle={menuHandler} headerToggle={true} visible={menuVisible} />
+            <GamePlayHeader bestTime='2:53' currentTime={displayTime} menuToggle={menuHandler} headerToggle={true} visible={menuVisible} />
             <GamePlayContainer>
-                <ImageScrollZoom source={require('../assets/ImageIcon.png')} buttonPress={props.buttonPress} pageName='roundWon' toggleTimer={toggleTimer} endTimer={endTimer} postNewTime={postNewTime} getBestTime={getBestTime} />
+                <ImageScrollZoom source={require('../assets/ImageIcon.png')} buttonPress={props.buttonPress} pageName='roundWon' toggleTimer={toggleTimer} endTimer={endTimer} postNewTime={postNewTime} getBestTime={getBestTime}/>
             </GamePlayContainer>
             <Menu visible={menuVisible} buttonPress={props.buttonPress} menuToggle={menuHandler} visibleToggle={false} desiredButton='exit'>
                 <MenuText message='INSTRUCTIONS: Use your fingers to scroll and zoom around the image to find the hidden icon.' />
