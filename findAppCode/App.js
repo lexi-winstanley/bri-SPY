@@ -12,6 +12,8 @@ import GamePlayScreen from './screens/GamePlayScreen';
 import WinScreen from './screens/WinScreen';
 import NewBestScreen from './screens/NewBestScreen';
 
+import imageList from './constants/images';
+
 class App extends Component {
   constructor(props) {
     super(props)
@@ -20,7 +22,6 @@ class App extends Component {
       name: '',
       id: '',
       accessToken: '',
-      photoUrl: '',
       fontLoaded: false,
       page: 'welcome',
       imageId: 1
@@ -35,6 +36,7 @@ class App extends Component {
   };
 
   apiRoot = 'http://192.168.1.18:8080/user';
+  numImages = imageList.images.length;
 
   getUserInfo = async (userId) => {
     try {
@@ -79,7 +81,6 @@ class App extends Component {
           name: result.user.name,
           id: result.user.id,
           accessToken: result.accessToken,
-          photoUrl: result.user.photoUrl, 
           page: 'thumbnail'
         });
         console.log(result);
@@ -104,7 +105,8 @@ class App extends Component {
     //       /* Log-Out */
     await Google.logOutAsync({ accessToken: this.state.accessToken, ...config });
     console.log('signed out');
-    this.changeScreen(pageName);
+    this.setState({signedIn: false, name: '', id: '', accessToken: ''})
+    this.changeScreen('welcome');
     /* `accessToken` is now invalid and cannot be used to get data from the Google API with HTTP requests */
     // }
   };
@@ -115,6 +117,16 @@ class App extends Component {
 
   changeScreenImage = (pageName, id) => {
     this.setState({ page: pageName, imageId: id });
+  };
+
+  changeScreenNext = (pageName, id) => {
+    let nextId;
+    if (id < numImages) {
+      nextId = id + 1;
+    } else {
+      nextId = 1;
+    }
+    this.setState({ page: pageName, imageId: nextId });
   };
 
 
@@ -129,31 +141,26 @@ class App extends Component {
     let content;
     switch (this.state.page) {
       case 'welcome':
-          //content = <WelcomeScreen buttonPress={this.signIn} />;
-        //content = <GamePlayScreen buttonPress={this.changeScreen}/>;
-        content = <ThumbnailScreen buttonPress={this.changeScreenImage} user={this.state.name} menuPress={this.signOut} selectedImage={this.state.imageId} />;
-        //content = <StartGameScreen buttonPress={this.changeScreen} user={this.state.name} />;
-        // if (this.state.signedIn === true) {
-        //   content = <ThumbnailScreen buttonPress={this.changeScreen} user={this.state.name} menuPress={this.signOut}/>;
-        // } else {
-        //   content = <WelcomeScreen buttonPress={this.signIn} />;
-        // }
+        if (this.state.signedIn === true) {
+          content = <ThumbnailScreen buttonPress={this.changeScreen} user={this.state.name} menuPress={this.signOut}/>;
+        } else {
+          content = <WelcomeScreen buttonPress={this.signIn} />;
+        }
         break;
       case 'thumbnail':
-        content = <ThumbnailScreen buttonPress={this.changeScreenImage} user={this.state.name} menuPress={this.signOut} selectedImage={this.state.imageId} />;
+        content = <ThumbnailScreen buttonPress={this.changeScreenImage} user={this.state.name} menuPress={this.signOut} />;
       break;
         case 'startGame':
-        //content = <ThumbnailScreen buttonPress={this.changeScreenImage} user={this.state.name} menuPress={this.signOut} selectedImage={this.state.imageId}/>;
-        content = <StartGameScreen buttonPress={this.changeScreen} user={this.state.name} menuPress={this.signOut} selectedImage={this.state.imageId}/>;
+        content = <StartGameScreen buttonPress={this.changeScreen} user={this.state.name} menuPress={this.signOut}/>;
         break;
       case 'gamePlay':
-        content = <GamePlayScreen buttonPress={this.changeScreen} user={this.state.id} selectedImage={this.state.imageId} />;
+        content = <GamePlayScreen buttonPress={this.changeScreen} user={this.state.id} selectedImage={this.state.imageId} selectedImageSrc={imageList.images[this.state.imageId - 1].source}/>;
         break;
       case 'roundWon':
-        content = <WinScreen buttonPress={this.changeScreen} />;
+        content = <WinScreen buttonPress={this.changeScreenNext} selectedImage={this.state.imageId}/>;
         break;
       case 'newBest':
-        content = <NewBestScreen buttonPress={this.changeScreen} />;
+        content = <NewBestScreen buttonPress={this.changeScreenNext} selectedImage={this.state.imageId}/>;
         break;
     }
 

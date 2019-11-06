@@ -15,7 +15,7 @@ const Menu = props => {
 
   switch (props.desiredButton) {
     case 'exit':
-      button = <ButtonContainer><CustomButton title='Exit Game' buttonPress={props.buttonPress} pageName='startGame' buttonColor='buttonLight' buttonTextColor='buttonTextLight'/></ButtonContainer>;
+      button = <ButtonContainer><CustomButton title='Exit Image' buttonPress={props.buttonPress} pageName='thumbnail' buttonColor='buttonLight' buttonTextColor='buttonTextLight'/></ButtonContainer>;
       break;
     case 'logOut':
       button = <ButtonContainer><CustomButton title='Log Out' buttonPress={props.menuPress} pageName='welcome' buttonColor='buttonLight' buttonTextColor='buttonTextLight'/></ButtonContainer>;

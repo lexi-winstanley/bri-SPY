@@ -16,7 +16,8 @@ const newBestScreen = props => {
                 <CenterIcon/>
             </MainContent>
             <ButtonContainer>
-                <CustomButton title='New Image' buttonPress={props.buttonPress} pageName='thumbnail' buttonColor='buttonPink' buttonTextColor='buttonTextPink'/>
+            <CustomButton title='Next Image' buttonPress={props.buttonPress} pageName='gamePlay' buttonColor='buttonPink' buttonTextColor='buttonTextPink'/>
+                <CustomButton title='Main Screen' buttonPress={props.buttonPress} pageName='thumbnail' buttonColor='buttonPink' buttonTextColor='buttonTextPink'/>
             </ButtonContainer>
         </View>
     );

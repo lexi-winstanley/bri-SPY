@@ -11,12 +11,12 @@ import CustomButton from '../components/CustomButton';
 const WinScreen = props => {
     return (
         <View style={styles.container}>
-            <MainContent>
+   
                 <CenterText message='Congratulations! You found the icon!'/>
                 <CenterIcon/>
-            </MainContent>
+          
             <ButtonContainer>
-                <CustomButton title='New Image' buttonPress={props.buttonPress} pageName='startGame' buttonColor='buttonPink' buttonTextColor='buttonTextPink'/>
+                <CustomButton title='All Images' buttonPress={props.buttonPress} pageName='thumbnail' buttonColor='buttonPink' buttonTextColor='buttonTextPink'/>
             </ButtonContainer>
         </View>
     );
