@@ -35,8 +35,6 @@ const GamePlayScreen = props => {
         return stringNum.length === 1 ? '0' + stringNum : stringNum;
     }
 
-
-
     useEffect(() => {
         let interval = null;
         if (timerActive) {

@@ -39,13 +39,6 @@ class ImageScrollZoom extends Component {
         this.iconFromTop = this.imageInfo.iconFromTop;
         this.iconWidth = this.imageInfo.iconWidth;
         this.iconHeight = this.imageInfo.iconHeight;
-
-        // this.rawImageWidth = 1125;
-        // this.rawImageHeight = 2031;
-        // this.iconFromLeft = 203.5;
-        // this.iconFromTop = 1950;
-        // this.iconWidth = 12;
-        // this.iconHeight = 14;
     }
 
     
@@ -124,15 +117,6 @@ class ImageScrollZoom extends Component {
                         let imageTouchedY = (minY - this.lastPositionY) + (touchY - barSizeY);
 
                         if (new Date().getTime() - this.lastClickTime < 250) {
-                            console.log(this.imageIndex );
-                            console.log(this.imageInfo);
-                            console.log(this.imageSource);
-                            console.log(this.rawImageWidth);
-                            console.log(this.rawImageHeight);
-                            console.log(this.iconFromLeft);
-                            console.log(this.iconFromTop);
-                            console.log(this.iconWidth);
-                            console.log(this.iconHeight);
                             console.log(`double click!`);
                             console.log(`baseScale: ${baseScale} barSizeY: ${barSizeY} barSizeX: ${barSizeX}`)
                             console.log(`xPos: ${this.lastPositionX} yPos: ${this.lastPositionY}`)
