@@ -21,9 +21,13 @@ const Menu = props => {
       button = <ButtonContainer><CustomButton title='Log Out' buttonPress={props.menuPress} pageName='welcome' buttonColor='buttonLight' buttonTextColor='buttonTextLight'/></ButtonContainer>;
       break;
   }
+  
+  let pauseMessage = 'PAUSED: ';
+
     return (
         <Modal style={styles.modal} visible={props.visible} transparent={true} >
           <View style={styles.settingsContainer}>
+            {props.paused ? <MenuText message={pauseMessage + props.paused}/> : null }
             <MenuToggle imageName={require('../assets/SettingsLight.png')} menuToggle={props.menuToggle} visibleToggle={props.visibleToggle} style={styles.menuToggler} version='outerContainerMenu'/>
             <MenuItemImage label='Icon:' imageName={require('../assets/hiddenIcon.png')}/>
             {props.children}
