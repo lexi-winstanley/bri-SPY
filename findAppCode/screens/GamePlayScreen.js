@@ -134,7 +134,7 @@ const GamePlayScreen = props => {
             <GamePlayContainer>
                 <ImageScrollZoom source={props.selectedImageSrc} buttonPress={props.buttonPress} pageName='roundWon' toggleTimer={toggleTimer} endTimer={endTimer} postNewTime={postNewTime} bestTime={bestSeconds} />
             </GamePlayContainer>
-            <Menu visible={menuVisible} buttonPress={props.buttonPress} menuToggle={menuHandler} visibleToggle={false} desiredButton='exit'>
+            <Menu visible={menuVisible} buttonPress={props.buttonPress} menuToggle={menuHandler} visibleToggle={false} desiredButton='exit' paused={displayTime}>
                 <MenuText message='INSTRUCTIONS: Use your fingers to scroll and zoom around the image to find the hidden icon. Double tap when you find it!' />
             </Menu>
         </View>
