@@ -20,7 +20,7 @@ const ThumbnailScreen = props => {
         <View style={styles.container}>
             <Header title={`WELCOME ${props.user}`} version='welcomeText'/>
             <CenterText message='Select an image below to get started!'/>
-            <ThumbnailContainer buttonPress={props.buttonPress} pageName='gamePlay'/>
+            <ThumbnailContainer buttonPress={props.buttonPress} pageName='startGame'/>
             <MenuToggle imageName={require('../assets/SettingsLight.png')} menuToggle={menuHandler} headerToggle={true} version='outerContainerThumbnail'/>
             <Menu visible={menuVisible} buttonPress={props.buttonPress} menuToggle={menuHandler} visibleToggle={false} menuPress={props.menuPress} desiredButton='logOut'/>
         </View>

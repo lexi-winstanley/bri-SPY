@@ -6,7 +6,7 @@ import MainContent from '../components/MainContent';
 import CenterText from '../components/CenterText';
 import CenterIcon from '../components/CenterIcon';
 import ButtonContainer from '../components/ButtonContainer';
-import CustomButton from '../components/CustomButton'
+import CustomButton from '../components/CustomButton';
 
 const WinScreen = props => {
     return (
@@ -16,7 +16,7 @@ const WinScreen = props => {
                 <CenterIcon/>
             </MainContent>
             <ButtonContainer>
-                <CustomButton title='Next Image' buttonPress={props.buttonPress} pageName='startGame'/>
+                <CustomButton title='New Image' buttonPress={props.buttonPress} pageName='startGame' buttonColor='buttonPink' buttonTextColor='buttonTextPink'/>
             </ButtonContainer>
         </View>
     );
@@ -24,7 +24,8 @@ const WinScreen = props => {
 
 const styles = EStyleSheet.create({
     container: {
-        flex: 1
+        flex: 1,
+        paddingVertical: '3rem'
     }
 });
 

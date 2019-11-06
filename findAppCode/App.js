@@ -13,19 +13,19 @@ import WinScreen from './screens/WinScreen';
 import NewBestScreen from './screens/NewBestScreen';
 
 class App extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-          signedIn: false, 
-          name: '', 
-          id: '',
-          accessToken: '',
-          photoUrl: '', 
-          fontLoaded: false,
-          page: 'welcome',
-          imageId: 1
-          }
-    };
+  constructor(props) {
+    super(props)
+    this.state = {
+      signedIn: false,
+      name: '',
+      id: '',
+      accessToken: '',
+      photoUrl: '',
+      fontLoaded: false,
+      page: 'welcome',
+      imageId: 1
+    }
+  };
 
   async componentDidMount() {
     await Font.loadAsync({
@@ -34,7 +34,7 @@ class App extends Component {
     this.setState({ fontLoaded: true });
   };
 
-  apiRoot = 'http://10.156.28.227:8080/user';
+  apiRoot = 'http://192.168.1.18:8080/user';
 
   getUserInfo = async (userId) => {
     try {
@@ -46,7 +46,7 @@ class App extends Component {
         this.postUserInfo(userId);
       }
       console.log(responseJson);
-      return responseJson;  
+      return responseJson;
     } catch (error) {
       console.error(error);
     }
@@ -79,7 +79,8 @@ class App extends Component {
           name: result.user.name,
           id: result.user.id,
           accessToken: result.accessToken,
-          photoUrl: result.user.photoUrl
+          photoUrl: result.user.photoUrl, 
+          page: 'thumbnail'
         });
         console.log(result);
         this.getUserInfo(result.user.id);
@@ -97,15 +98,15 @@ class App extends Component {
       androidClientId: '581960141699-006fes5kkb1tfp6gte345sl6vd2eboqf.apps.googleusercontent.com',
       iosClientId: '581960141699-aptj7u212c0ggb15epfl9psmo0pvktog.apps.googleusercontent.com'
     };
-//     const { type, accessToken } = await Google.logInAsync(config);
+    //     const { type, accessToken } = await Google.logInAsync(config);
 
-// if (type === 'success') {
-//       /* Log-Out */
-      await Google.logOutAsync({accessToken: this.state.accessToken, ...config });
-      console.log('signed out');
-      this.changeScreen(pageName);
-      /* `accessToken` is now invalid and cannot be used to get data from the Google API with HTTP requests */
-// }
+    // if (type === 'success') {
+    //       /* Log-Out */
+    await Google.logOutAsync({ accessToken: this.state.accessToken, ...config });
+    console.log('signed out');
+    this.changeScreen(pageName);
+    /* `accessToken` is now invalid and cannot be used to get data from the Google API with HTTP requests */
+    // }
   };
 
   changeScreen = pageName => {
@@ -128,26 +129,30 @@ class App extends Component {
     let content;
     switch (this.state.page) {
       case 'welcome':
-        content = <GamePlayScreen buttonPress={this.changeScreen}/>;
-        //content = <ThumbnailScreen buttonPress={this.changeScreenImage} user={this.state.name} menuPress={this.signOut} selectedImage={this.state.imageId}/>;
-        // content = <StartGameScreen buttonPress={this.changeScreen} user={this.state.name} />;
+          //content = <WelcomeScreen buttonPress={this.signIn} />;
+        //content = <GamePlayScreen buttonPress={this.changeScreen}/>;
+        content = <ThumbnailScreen buttonPress={this.changeScreenImage} user={this.state.name} menuPress={this.signOut} selectedImage={this.state.imageId} />;
+        //content = <StartGameScreen buttonPress={this.changeScreen} user={this.state.name} />;
         // if (this.state.signedIn === true) {
         //   content = <ThumbnailScreen buttonPress={this.changeScreen} user={this.state.name} menuPress={this.signOut}/>;
         // } else {
         //   content = <WelcomeScreen buttonPress={this.signIn} />;
         // }
         break;
-      case 'startGame':
-          content = <ThumbnailScreen buttonPress={this.changeScreenImage} user={this.state.name} menuPress={this.signOut} selectedImage={this.state.imageId}/>;
-        // content = <StartGameScreen buttonPress={this.changeScreen} user={this.state.name} menuPress={this.signOut}/>;
+      case 'thumbnail':
+        content = <ThumbnailScreen buttonPress={this.changeScreenImage} user={this.state.name} menuPress={this.signOut} selectedImage={this.state.imageId} />;
+      break;
+        case 'startGame':
+        //content = <ThumbnailScreen buttonPress={this.changeScreenImage} user={this.state.name} menuPress={this.signOut} selectedImage={this.state.imageId}/>;
+        content = <StartGameScreen buttonPress={this.changeScreen} user={this.state.name} menuPress={this.signOut} selectedImage={this.state.imageId}/>;
         break;
       case 'gamePlay':
-        content = <GamePlayScreen buttonPress={this.changeScreen} user={this.state.id} selectedImage={this.state.imageId}/>;
+        content = <GamePlayScreen buttonPress={this.changeScreen} user={this.state.id} selectedImage={this.state.imageId} />;
         break;
-      case 'roundWon': 
+      case 'roundWon':
         content = <WinScreen buttonPress={this.changeScreen} />;
         break;
-      case 'newBest': 
+      case 'newBest':
         content = <NewBestScreen buttonPress={this.changeScreen} />;
         break;
     }

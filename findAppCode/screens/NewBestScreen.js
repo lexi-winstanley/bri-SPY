@@ -16,7 +16,7 @@ const newBestScreen = props => {
                 <CenterIcon/>
             </MainContent>
             <ButtonContainer>
-                <CustomButton title='Next Image' buttonPress={props.buttonPress} pageName='startGame'/>
+                <CustomButton title='New Image' buttonPress={props.buttonPress} pageName='thumbnail' buttonColor='buttonPink' buttonTextColor='buttonTextPink'/>
             </ButtonContainer>
         </View>
     );
@@ -24,7 +24,8 @@ const newBestScreen = props => {
 
 const styles = EStyleSheet.create({
     container: {
-        flex: 1
+        flex: 1, 
+        paddingVertical: '3rem'
     }
 });
 

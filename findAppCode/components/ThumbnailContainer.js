@@ -15,7 +15,7 @@ const ThumbnailContainer = props => {
                     id={image.item.id}
                     src={image.item.source}
                     buttonPress={props.buttonPress}
-                    pageName={'gamePlay'}
+                    pageName={'startGame'}
                 />
                 </View>
             )}

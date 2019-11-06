@@ -21,7 +21,7 @@ const StartGameScreen = props => {
     return (
         <View style={styles.container}>
             <Header title={`WELCOME ${props.user}`} version='welcomeText'/>
-            <CenterText message='Press the button below to get started finding your hidden icon!'/>
+            <CenterText message='Use your fingers to scroll and zoom around the image to find the icon shown below. Double tap when you find it!'/>
             <CenterIcon/>
             <ButtonContainer>
                 <CustomButton title='Start' buttonPress={props.buttonPress} pageName='gamePlay' buttonColor='buttonPink' buttonTextColor='buttonTextPink'/>

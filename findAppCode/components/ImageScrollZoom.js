@@ -120,8 +120,8 @@ class ImageScrollZoom extends Component {
                             console.log(`barX: ${barSizeX}`);
                             console.log(`barY: ${barSizeY}`);
                             console.log(`bounding: ${this.viewWidth/2 * (this.scale - 1)}`);
-                            let allowedErrorX =  37.5* this.scale / this.iconWidth;
-                            let allowedErrorY = 37.5 * this.scale / this.iconHeight;
+                            let allowedErrorX =  50* this.scale / this.iconWidth;
+                            let allowedErrorY = 50 * this.scale / this.iconHeight;
 
                             console.log(`dx: ${Math.abs(this.iconFromLeft * this.scale/baseScale - imageTouchedX)} dy: ${Math.abs(this.iconFromTop * this.scale/baseScale - imageTouchedY)}`)
                             console.log(`maxErrorX: ${allowedErrorX} maxErrorY: ${allowedErrorY}`)
@@ -130,14 +130,16 @@ class ImageScrollZoom extends Component {
                                 console.log('icon found');
                                 console.log(this.props);
                                 this.props.endTimer();
-                                checkBest = async () => {
-                                    const newBest = await this.props.getBestTime();
-                                    if (newBest === true) {
-                                        this.props.buttonPress('newBest');
-                                    } else {
-                                        this.props.buttonPress(this.props.pageName);
-                                    } 
-                                }
+                                // this.props.buttonPress(this.props.pageName);
+                                this.props.postNewTime();
+                                // checkBest = async () => {
+                                //     const newBest = await this.props.getBestTime();
+                                //     if (newBest === true) {
+                                //         this.props.buttonPress('newBest');
+                                //     } else {
+                                //         this.props.buttonPress(this.props.pageName);
+                                //     } 
+                                // }
                             }
                         }
                     }

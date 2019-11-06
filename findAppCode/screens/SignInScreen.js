@@ -9,7 +9,7 @@ const SignInScreen = props => {
     return (
         <View style={styles.container}>
             <Header title='.find( )' version='appTitle'/>
-            <UserAuthInputs buttonPress={props.buttonPress} pageName='startGame' title='Sign In'/>
+            <UserAuthInputs buttonPress={props.buttonPress} pageName='thumbnail' title='Sign In'/>
         </View>
     );
 };
