@@ -16,6 +16,7 @@ const styles = EStyleSheet.create({
     textContainer: {
         marginHorizontal: '.5rem',
         marginTop: '.5rem',
+        marginBottom: '1.5rem',
         width: '100%',
         paddingHorizontal: '1.5rem',
         paddingTop: '1.5rem',

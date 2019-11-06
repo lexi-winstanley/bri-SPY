@@ -10,6 +10,7 @@ import ButtonContainer from '../components/ButtonContainer';
 import GoogleSignInButton from '../components/GoogleSignIn';
 
 const WelcomeScreen = props => {
+    // console.log('welButton: ' + props.buttonPress);
     return (
         <View style={styles.container}>
             <Header title='.find( )' version='appTitle'/>

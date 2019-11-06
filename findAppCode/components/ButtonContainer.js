@@ -13,7 +13,8 @@ const ButtonContainer = props => {
 const styles = EStyleSheet.create({
     buttonContainer: {
         flex: 0,
-        marginBottom: '1rem'
+        marginBottom: '1rem', 
+        marginTop: '1.5rem'
     }
 });
 

@@ -6,10 +6,16 @@ import fonts from '../constants/fonts';
 import MenuToggle from '../components/MenuToggle';
 
 const GamePlayHeader = props => {
+    let content;
+    if (props.bestTime === 'hide') {
+        content = null;
+    } else {
+        content = <Text style={styles.gameHeaderText}>Best: {props.bestTime}</Text>
+    }
     return (
         <View style={styles.gameHeaderContainer}>
             <View style={styles.textWrap}>
-            <Text style={styles.gameHeaderText}>Best: {props.bestTime}</Text>
+            {content}
             <Text style={styles.gameHeaderText}>Current: {props.currentTime}</Text>
             </View>
             <MenuToggle imageName={require('../assets/SettingsLight.png')} menuToggle={props.menuToggle} visibleToggle={props.headerToggle} version='outerContainerHeader'/>

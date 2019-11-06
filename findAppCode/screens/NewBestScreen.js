@@ -6,17 +6,18 @@ import MainContent from '../components/MainContent';
 import CenterText from '../components/CenterText';
 import CenterIcon from '../components/CenterIcon';
 import ButtonContainer from '../components/ButtonContainer';
-import CustomButton from '../components/CustomButton';
+import CustomButton from '../components/CustomButton'
 
-const WinScreen = props => {
+const newBestScreen = props => {
     return (
         <View style={styles.container}>
-   
-                <CenterText message='Congratulations! You found the icon!'/>
+            <MainContent>
+                <CenterText message='Congratulations! You found the icon! New Best Time!'/>
                 <CenterIcon/>
-          
+            </MainContent>
             <ButtonContainer>
-                <CustomButton title='All Images' buttonPress={props.buttonPress} pageName='thumbnail' buttonColor='buttonPink' buttonTextColor='buttonTextPink'/>
+            <CustomButton title='Next Image' buttonPress={props.buttonPress} pageName='gamePlay' buttonColor='buttonPink' buttonTextColor='buttonTextPink'/>
+                <CustomButton title='Main Screen' buttonPress={props.buttonPress} pageName='thumbnail' buttonColor='buttonPink' buttonTextColor='buttonTextPink'/>
             </ButtonContainer>
         </View>
     );
@@ -24,9 +25,9 @@ const WinScreen = props => {
 
 const styles = EStyleSheet.create({
     container: {
-        flex: 1,
+        flex: 1, 
         paddingVertical: '3rem'
     }
 });
 
-export default WinScreen;
+export default newBestScreen;
