@@ -1,9 +1,3 @@
-# WEEK 1 DELIVERABLES
-* Plan
-* Design
-* Research
-
-
 ## .find() Mobile App Idea
 The main idea behind Project 3 is to create a Mobile game app that will display a picture with a hidden character using React and React Native.
 
