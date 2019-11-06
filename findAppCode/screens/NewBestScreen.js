@@ -1,5 +1,5 @@
 import React from 'react';
-import {View} from 'react-native';
+import { View } from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
 
 import MainContent from '../components/MainContent';
@@ -12,12 +12,12 @@ const newBestScreen = props => {
     return (
         <View style={styles.container}>
             <MainContent>
-                <CenterText message='Congratulations! You found the icon! New Best Time!'/>
-                <CenterIcon/>
+                <CenterText message='Congratulations! You found the icon! New Best Time!' />
+                <CenterIcon />
             </MainContent>
             <ButtonContainer>
-            <CustomButton title='Next Image' buttonPress={props.buttonPress} pageName='gamePlay' buttonColor='buttonPink' buttonTextColor='buttonTextPink'/>
-                <CustomButton title='Main Screen' buttonPress={props.buttonPress} pageName='thumbnail' buttonColor='buttonPink' buttonTextColor='buttonTextPink'/>
+                <CustomButton title='Next Image' buttonPress={props.buttonPress} pageName='gamePlay' buttonColor='buttonPink' buttonTextColor='buttonTextPink' />
+                <CustomButton title='Main Menu' buttonPress={props.buttonPress} pageName='thumbnail' buttonColor='buttonPink' buttonTextColor='buttonTextPink' />
             </ButtonContainer>
         </View>
     );
@@ -25,7 +25,7 @@ const newBestScreen = props => {
 
 const styles = EStyleSheet.create({
     container: {
-        flex: 1, 
+        flex: 1,
         paddingVertical: '3rem'
     }
 });
