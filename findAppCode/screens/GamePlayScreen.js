@@ -10,7 +10,7 @@ import Menu from '../components/Menu';
 import MenuText from '../components/MenuItemText';
 
 const GamePlayScreen = props => {
-    const apiRoot = 'http://10.156.29.163:8080/time';
+    const apiRoot = 'https://project3-backend.herokuapp.com/time';
     const [bestSeconds, setBestSeconds] = useState(null);
     const [displayBest, setDisplayBest] = useState('00:00:00');
     const [menuVisible, setMenuVisible] = useState(false);

@@ -32,12 +32,13 @@ class ImageScrollZoom extends Component {
 
         this.imageIndex = parseInt(this.props.selectedImageId) - 1;
         this.imageInfo = imageList.images[this.imageIndex];
+        this.imageSource = this.imageInfo.source;
         this.rawImageWidth = this.imageInfo.width;
         this.rawImageHeight = this.imageInfo.height;
         this.iconFromLeft = this.imageInfo.iconFromLeft;
         this.iconFromTop = this.imageInfo.iconFromTop;
         this.iconWidth = this.imageInfo.iconWidth;
-        this.iconHeight = this.imageInfo.iconHeigth;
+        this.iconHeight = this.imageInfo.iconHeight;
 
         // this.rawImageWidth = 1125;
         // this.rawImageHeight = 2031;
@@ -123,6 +124,15 @@ class ImageScrollZoom extends Component {
                         let imageTouchedY = (minY - this.lastPositionY) + (touchY - barSizeY);
 
                         if (new Date().getTime() - this.lastClickTime < 250) {
+                            console.log(this.imageIndex );
+                            console.log(this.imageInfo);
+                            console.log(this.imageSource);
+                            console.log(this.rawImageWidth);
+                            console.log(this.rawImageHeight);
+                            console.log(this.iconFromLeft);
+                            console.log(this.iconFromTop);
+                            console.log(this.iconWidth);
+                            console.log(this.iconHeight);
                             console.log(`double click!`);
                             console.log(`baseScale: ${baseScale} barSizeY: ${barSizeY} barSizeX: ${barSizeX}`)
                             console.log(`xPos: ${this.lastPositionX} yPos: ${this.lastPositionY}`)
@@ -239,7 +249,7 @@ class ImageScrollZoom extends Component {
             <View onLayout={this.onPanResponderLayout.bind(this)} style={styles.viewContainer} {...this.panResponder.panHandlers}>
                 <Animated.View style={animationTranslateConfig} pointerEvents='none' renderToHardwareTextureAndroid>
                     <View style={styles.imageContainer} pointerEvents='none'>
-                        <Image resizeMode="contain" pointerEvents='none' onLayout={this.onImageLayout.bind(this)} source={this.props.source} style={styles.image}/>
+                        <Image resizeMode="contain" pointerEvents='none' onLayout={this.onImageLayout.bind(this)} source={this.imageSource} style={styles.image}/>
                     </View>
                 </Animated.View>
             </View>
