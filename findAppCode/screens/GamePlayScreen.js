@@ -10,7 +10,7 @@ import Menu from '../components/Menu';
 import MenuText from '../components/MenuItemText';
 
 const GamePlayScreen = props => {
-    const apiRoot = 'http://192.168.1.18:8080/time';
+    const apiRoot = 'https://project3-backend.herokuapp.com/time';
     const [bestSeconds, setBestSeconds] = useState(null);
     const [displayBest, setDisplayBest] = useState('00:00:00');
     const [menuVisible, setMenuVisible] = useState(false);
@@ -34,8 +34,6 @@ const GamePlayScreen = props => {
         stringNum = String(num);
         return stringNum.length === 1 ? '0' + stringNum : stringNum;
     }
-
-
 
     useEffect(() => {
         let interval = null;
@@ -124,18 +122,20 @@ const GamePlayScreen = props => {
         }
     }, [bestSeconds]);
 
-    console.log('image' + props.selectedImage);
+    // console.log('image' + props.selectedImage);
 
 
     return (
         <View style={styles.container}>
+            
             <GamePlayHeader bestTime={displayBest} currentTime={displayTime} menuToggle={menuHandler} headerToggle={true} visible={menuVisible} />
             <GamePlayContainer>
-                <ImageScrollZoom source={props.selectedImageSrc} buttonPress={props.buttonPress} pageName='roundWon' toggleTimer={toggleTimer} endTimer={endTimer} postNewTime={postNewTime} bestTime={bestSeconds} />
+                <ImageScrollZoom selectedImageId={props.selectedImage} source={props.selectedImageSrc} buttonPress={props.buttonPress} pageName='roundWon' toggleTimer={toggleTimer} endTimer={endTimer} postNewTime={postNewTime} bestTime={bestSeconds} />
             </GamePlayContainer>
             <Menu visible={menuVisible} buttonPress={props.buttonPress} menuToggle={menuHandler} visibleToggle={false} desiredButton='exit' paused={displayTime}>
                 <MenuText message='INSTRUCTIONS: Use your fingers to scroll and zoom around the image to find the hidden icon. Double tap when you find it!' />
             </Menu>
+            
         </View>
     );
 };

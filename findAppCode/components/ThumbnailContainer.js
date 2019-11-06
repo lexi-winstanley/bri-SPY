@@ -13,7 +13,7 @@ const ThumbnailContainer = props => {
                 <View style={styles.thumbnailHeightControl}>
                 <Thumbnail
                     id={image.item.id}
-                    src={image.item.source}
+                    src={image.item.thumbnail}
                     buttonPress={props.buttonPress}
                     pageName={'startGame'}
                 />

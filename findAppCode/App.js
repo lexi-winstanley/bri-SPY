@@ -28,6 +28,7 @@ class App extends Component {
     }
   };
 
+
   async componentDidMount() {
     await Font.loadAsync({
       'barlowCondensed': require('./assets/fonts/BarlowCondensed-Regular.ttf')
@@ -35,7 +36,7 @@ class App extends Component {
     this.setState({ fontLoaded: true });
   };
 
-  apiRoot = 'http://192.168.1.18:8080/user';
+  apiRoot = 'https://project3-backend.herokuapp.com/user';
   numImages = imageList.images.length;
 
   getUserInfo = async (userId) => {

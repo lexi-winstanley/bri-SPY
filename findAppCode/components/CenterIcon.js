@@ -16,10 +16,12 @@ const styles = EStyleSheet.create({
         width: '100%',
         flexDirection: 'row',
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        padding: '2rem'
     }, 
     image: {
-        width: '50%'
+        width: '60%', 
+        maxHeight: '100%'
     }
 });
 
