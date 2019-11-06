@@ -15,7 +15,7 @@ const WelcomeScreen = props => {
         <View style={styles.container}>
             <Header title='.find( )' version='appTitle'/>
             <MainContent>
-                <CenterText message='Find the hidden icon in our library of images!'/>
+                <CenterText message='Find the icon below hidden in our library of images!'/>
                 <CenterIcon/>
             </MainContent>
             <ButtonContainer>

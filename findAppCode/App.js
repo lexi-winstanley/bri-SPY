@@ -35,7 +35,7 @@ class App extends Component {
     this.setState({ fontLoaded: true });
   };
 
-  apiRoot = 'http://192.168.1.18:8080/user';
+  apiRoot = 'http://10.156.29.163:8080/user';
   numImages = imageList.images.length;
 
   getUserInfo = async (userId) => {

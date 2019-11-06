@@ -24,5 +24,3 @@ const styles = EStyleSheet.create({
 });
 
 export default Thumbnail;
-
-//props.buttonPress(props.pageName)

@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import { View, Image, PanResponder, Animated} from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
+import imageList from '../constants/images.js';
 
 class ImageScrollZoom extends Component {
     constructor(props) {
@@ -29,13 +30,24 @@ class ImageScrollZoom extends Component {
         this.onPanResponderLayout.bind(this);
         this.onImageLayout.bind(this);
 
-        this.rawImageWidth = 1125;
-        this.rawImageHeight = 2031;
-        this.iconFromLeft = 203.5;
-        this.iconFromTop = 1950;
-        this.iconWidth = 12;
-        this.iconHeight = 14;
+        this.imageIndex = parseInt(this.props.selectedImageId) - 1;
+        this.imageInfo = imageList.images[this.imageIndex];
+        this.rawImageWidth = this.imageInfo.width;
+        this.rawImageHeight = this.imageInfo.height;
+        this.iconFromLeft = this.imageInfo.iconFromLeft;
+        this.iconFromTop = this.imageInfo.iconFromTop;
+        this.iconWidth = this.imageInfo.iconWidth;
+        this.iconHeight = this.imageInfo.iconHeigth;
+
+        // this.rawImageWidth = 1125;
+        // this.rawImageHeight = 2031;
+        // this.iconFromLeft = 203.5;
+        // this.iconFromTop = 1950;
+        // this.iconWidth = 12;
+        // this.iconHeight = 14;
     }
+
+    
 
     boundView() {
         console.log("X: " + this.lastPositionX)
@@ -132,14 +144,6 @@ class ImageScrollZoom extends Component {
                                 this.props.endTimer();
                                 // this.props.buttonPress(this.props.pageName);
                                 this.props.postNewTime();
-                                // checkBest = async () => {
-                                //     const newBest = await this.props.getBestTime();
-                                //     if (newBest === true) {
-                                //         this.props.buttonPress('newBest');
-                                //     } else {
-                                //         this.props.buttonPress(this.props.pageName);
-                                //     } 
-                                // }
                             }
                         }
                     }
@@ -206,7 +210,10 @@ class ImageScrollZoom extends Component {
         this.imageWidth = width;
         this.imageHeight = height;
         this.props.toggleTimer();
+        console.log(this.imageInfo);
     }
+
+    
 
     render() {
         const animationTranslateConfig = {
@@ -232,7 +239,7 @@ class ImageScrollZoom extends Component {
             <View onLayout={this.onPanResponderLayout.bind(this)} style={styles.viewContainer} {...this.panResponder.panHandlers}>
                 <Animated.View style={animationTranslateConfig} pointerEvents='none' renderToHardwareTextureAndroid>
                     <View style={styles.imageContainer} pointerEvents='none'>
-                        <Image resizeMode="contain" pointerEvents='none' onLayout={this.onImageLayout.bind(this)} source={require('../assets/ImageIcon.png')} style={styles.image}/>
+                        <Image resizeMode="contain" pointerEvents='none' onLayout={this.onImageLayout.bind(this)} source={this.props.source} style={styles.image}/>
                     </View>
                 </Animated.View>
             </View>
