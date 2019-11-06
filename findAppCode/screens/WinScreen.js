@@ -16,7 +16,8 @@ const WinScreen = props => {
                 <CenterIcon/>
           
             <ButtonContainer>
-                <CustomButton title='All Images' buttonPress={props.buttonPress} pageName='thumbnail' buttonColor='buttonPink' buttonTextColor='buttonTextPink'/>
+                <CustomButton title='Next Image' buttonPress={props.buttonPress} pageName='gamePlay' buttonColor='buttonPink' buttonTextColor='buttonTextPink'/>
+                <CustomButton title='Main Menu' buttonPress={props.buttonPress} pageName='thumbnail' buttonColor='buttonPink' buttonTextColor='buttonTextPink'/>
             </ButtonContainer>
         </View>
     );

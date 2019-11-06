@@ -72,8 +72,6 @@ const GamePlayScreen = props => {
                     imageId: 1
                 })
             });
-            // const json = await response.json();
-            // console.log('Success:', JSON.stringify(json));
             if (bestSeconds === null) {
                 props.buttonPress('newBest');
             } else if (bestSeconds > totalSeconds) {
@@ -126,6 +124,7 @@ const GamePlayScreen = props => {
         }
     }, [bestSeconds]);
 
+    console.log('image' + props.selectedImage);
 
 
     return (

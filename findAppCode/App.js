@@ -119,13 +119,16 @@ class App extends Component {
     this.setState({ page: pageName, imageId: id });
   };
 
-  changeScreenNext = (pageName, id) => {
+  changeScreenNext = (pageName) => {
+    let id = this.state.imageId;
     let nextId;
-    if (id < numImages) {
-      nextId = id + 1;
+    if (id < this.numImages) {
+      nextId = parseInt(id) + 1;
     } else {
       nextId = 1;
     }
+    console.log(id);
+    console.log(nextId)
     this.setState({ page: pageName, imageId: nextId });
   };
 
@@ -157,10 +160,10 @@ class App extends Component {
         content = <GamePlayScreen buttonPress={this.changeScreen} user={this.state.id} selectedImage={this.state.imageId} selectedImageSrc={imageList.images[this.state.imageId - 1].source}/>;
         break;
       case 'roundWon':
-        content = <WinScreen buttonPress={this.changeScreenNext} selectedImage={this.state.imageId}/>;
+        content = <WinScreen buttonPress={this.changeScreenNext} />;
         break;
       case 'newBest':
-        content = <NewBestScreen buttonPress={this.changeScreenNext} selectedImage={this.state.imageId}/>;
+        content = <NewBestScreen buttonPress={this.changeScreenNext} />;
         break;
     }
 
