@@ -145,6 +145,8 @@ class App extends Component {
     let content;
     switch (this.state.page) {
       case 'welcome':
+          //content = <ThumbnailScreen buttonPress={this.changeScreen} user={this.state.name} menuPress={this.signOut}/>;
+
         if (this.state.signedIn === true) {
           content = <ThumbnailScreen buttonPress={this.changeScreen} user={this.state.name} menuPress={this.signOut}/>;
         } else {
@@ -155,10 +157,12 @@ class App extends Component {
         content = <ThumbnailScreen buttonPress={this.changeScreenImage} user={this.state.name} menuPress={this.signOut} />;
       break;
         case 'startGame':
-        content = <StartGameScreen buttonPress={this.changeScreen} user={this.state.name} menuPress={this.signOut}/>;
+            content = <GamePlayScreen menuPress={this.signOut} buttonPress={this.changeScreen} user={this.state.id} userName={this.state.name} selectedImage={this.state.imageId} selectedImageSrc={imageList.images[this.state.imageId - 1].source}/>;
+
+       // content = <StartGameScreen buttonPress={this.changeScreen} user={this.state.name} menuPress={this.signOut}/>;
         break;
       case 'gamePlay':
-        content = <GamePlayScreen buttonPress={this.changeScreen} user={this.state.id} selectedImage={this.state.imageId} selectedImageSrc={imageList.images[this.state.imageId - 1].source}/>;
+        content = <GamePlayScreen menuPress={this.signOut} buttonPress={this.changeScreen} user={this.state.id} userName={this.state.name} selectedImage={this.state.imageId} selectedImageSrc={imageList.images[this.state.imageId - 1].source}/>;
         break;
       case 'roundWon':
         content = <WinScreen buttonPress={this.changeScreenNext} />;
@@ -167,6 +171,8 @@ class App extends Component {
         content = <NewBestScreen buttonPress={this.changeScreenNext} />;
         break;
     }
+
+    console.log('page ' + this.state.page);
 
     return (
       <LinearGradient colors={['#680A4D', '#FC354C']} start={[0, .9]} end={[1, 0]} style={{ flex: 1 }}>

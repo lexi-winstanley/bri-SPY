@@ -1,5 +1,5 @@
-import React, {useState} from 'react';
-import {View} from 'react-native';
+import React, { useState } from 'react';
+import { View } from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
 
 import Header from '../components/Header';
@@ -19,15 +19,16 @@ const StartGameScreen = props => {
 
 
     return (
+
         <View style={styles.container}>
-            <Header title={`WELCOME ${props.user}`} version='welcomeText'/>
-            <CenterText message='Use your fingers to scroll and zoom around the image to find the icon shown below. Double tap when you find it!'/>
-            <CenterIcon/>
+            <Header title={`WELCOME ${props.user}`} version='welcomeText' />
+            <CenterText message='Use your fingers to scroll and zoom around the image to find the icon shown below. Double tap when you find it!' />
+            <CenterIcon />
             <ButtonContainer>
-                <CustomButton title='Start' buttonPress={props.buttonPress} pageName='gamePlay' buttonColor='buttonPink' buttonTextColor='buttonTextPink'/>
+                <CustomButton title='Start' buttonPress={props.startPress} buttonColor='buttonPink' buttonTextColor='buttonTextPink' />
             </ButtonContainer>
-            <MenuToggle imageName={require('../assets/SettingsLight.png')} menuToggle={menuHandler} headerToggle={true} version='outerContainerStart'/>
-            <Menu visible={menuVisible} buttonPress={props.buttonPress} menuToggle={menuHandler} visibleToggle={false} menuPress={props.menuPress} desiredButton='logOut'/>
+            <MenuToggle imageName={require('../assets/SettingsLight.png')} menuToggle={menuHandler} headerToggle={true} version='outerContainerStart' />
+            <Menu visible={menuVisible} buttonPress={props.buttonPress} menuToggle={menuHandler} visibleToggle={false} menuPress={props.menuPress} desiredButton='logOut' />
         </View>
     );
 };

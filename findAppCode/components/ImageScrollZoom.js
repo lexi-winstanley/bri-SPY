@@ -126,9 +126,10 @@ class ImageScrollZoom extends Component {
                             console.log(`barX: ${barSizeX}`);
                             console.log(`barY: ${barSizeY}`);
                             console.log(`bounding: ${this.viewWidth/2 * (this.scale - 1)}`);
-                            let allowedErrorX =  50* this.scale / this.iconWidth;
-                            let allowedErrorY = 50 * this.scale / this.iconHeight;
-
+                            let allowedErrorX;
+                            {this.iconWidth > 20 ? allowedErrorX = this.iconWidth/3 : allowedErrorX = 50* this.scale / this.iconWidth};
+                            let allowedErrorY;
+                            {this.iconHeight > 30 ? allowedErrorY = this.iconHeight/3 : allowedErrorY = 50 * this.scale / this.iconHeight};
                             console.log(`dx: ${Math.abs(this.iconFromLeft * this.scale/baseScale - imageTouchedX)} dy: ${Math.abs(this.iconFromTop * this.scale/baseScale - imageTouchedY)}`)
                             console.log(`maxErrorX: ${allowedErrorX} maxErrorY: ${allowedErrorY}`)
                             if (Math.abs(this.iconFromLeft * this.scale/baseScale - imageTouchedX) < allowedErrorX && Math.abs(this.iconFromTop * this.scale/baseScale - imageTouchedY) < allowedErrorY) {
@@ -203,7 +204,7 @@ class ImageScrollZoom extends Component {
         console.log("Image height: " + height);
         this.imageWidth = width;
         this.imageHeight = height;
-        this.props.toggleTimer();
+        // this.props.toggleTimer();
         console.log(this.imageInfo);
     }
 
@@ -233,7 +234,7 @@ class ImageScrollZoom extends Component {
             <View onLayout={this.onPanResponderLayout.bind(this)} style={styles.viewContainer} {...this.panResponder.panHandlers}>
                 <Animated.View style={animationTranslateConfig} pointerEvents='none' renderToHardwareTextureAndroid>
                     <View style={styles.imageContainer} pointerEvents='none'>
-                        <Image resizeMode="contain" pointerEvents='none' onLayout={this.onImageLayout.bind(this)} source={this.imageSource} style={styles.image}/>
+                        <Image resizeMode='contain' pointerEvents='none' onLayout={this.onImageLayout.bind(this)} source={this.imageSource} style={styles.image}/>
                     </View>
                 </Animated.View>
             </View>
