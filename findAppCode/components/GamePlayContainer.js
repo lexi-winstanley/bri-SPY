@@ -1,5 +1,5 @@
 import React from 'react';
-import { View} from 'react-native';
+import { View } from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
 import colors from '../constants/colors';
 
@@ -8,7 +8,6 @@ const GamePlayContainer = props => {
         <View style={styles.gamePlayContainer}>
             {props.children}
         </View>
-
     )
 };
 
