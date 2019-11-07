@@ -52,8 +52,8 @@ export default {
             height: 2708,
             iconFromLeft: 1054.166,
             iconFromTop: 938.975,
-            iconWidth: 15,
-            iconHeight: 21.693
+            iconWidth: 20,
+            iconHeight: 28.924
         },
         {
             id: '6',
@@ -63,8 +63,8 @@ export default {
             height: 2708,
             iconFromLeft: 1381.767,
             iconFromTop: 1460.694,
-            iconWidth: 15,
-            iconHeight: 21.693
+            iconWidth: 20,
+            iconHeight: 28.924
         }
     ]
 }

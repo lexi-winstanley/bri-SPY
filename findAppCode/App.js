@@ -27,8 +27,7 @@ class App extends Component {
       imageId: 1
     }
   };
-
-
+  
   async componentDidMount() {
     await Font.loadAsync({
       'barlowCondensed': require('./assets/fonts/BarlowCondensed-Regular.ttf')
@@ -48,7 +47,6 @@ class App extends Component {
       if (responseJson === null) {
         this.postUserInfo(userId);
       }
-      console.log(responseJson);
       return responseJson;
     } catch (error) {
       console.error(error);
@@ -56,7 +54,6 @@ class App extends Component {
   };
 
   postUserInfo = (stateId) => {
-    console.log('i got called');
     fetch(this.apiRoot, {
       method: 'POST',
       headers: {
@@ -84,7 +81,6 @@ class App extends Component {
           accessToken: result.accessToken,
           page: 'thumbnail'
         });
-        console.log(result);
         this.getUserInfo(result.user.id);
       } else {
         console.log('cancelled');
@@ -95,21 +91,13 @@ class App extends Component {
   };
 
   signOut = async (pageName) => {
-    console.log('hello');
     const config = {
       androidClientId: '581960141699-006fes5kkb1tfp6gte345sl6vd2eboqf.apps.googleusercontent.com',
       iosClientId: '581960141699-aptj7u212c0ggb15epfl9psmo0pvktog.apps.googleusercontent.com'
     };
-    //     const { type, accessToken } = await Google.logInAsync(config);
-
-    // if (type === 'success') {
-    //       /* Log-Out */
     await Google.logOutAsync({ accessToken: this.state.accessToken, ...config });
-    console.log('signed out');
-    this.setState({signedIn: false, name: '', id: '', accessToken: ''})
+    this.setState({ signedIn: false, name: '', id: '', accessToken: '' });
     this.changeScreen('welcome');
-    /* `accessToken` is now invalid and cannot be used to get data from the Google API with HTTP requests */
-    // }
   };
 
   changeScreen = pageName => {
@@ -128,12 +116,8 @@ class App extends Component {
     } else {
       nextId = 1;
     }
-    console.log(id);
-    console.log(nextId)
     this.setState({ page: pageName, imageId: nextId });
   };
-
-
 
   render() {
     const { width } = Dimensions.get('window');
@@ -145,24 +129,17 @@ class App extends Component {
     let content;
     switch (this.state.page) {
       case 'welcome':
-          //content = <ThumbnailScreen buttonPress={this.changeScreen} user={this.state.name} menuPress={this.signOut}/>;
-
         if (this.state.signedIn === true) {
-          content = <ThumbnailScreen buttonPress={this.changeScreen} user={this.state.name} menuPress={this.signOut}/>;
+          content = <ThumbnailScreen buttonPress={this.changeScreen} user={this.state.name} menuPress={this.signOut} />;
         } else {
           content = <WelcomeScreen buttonPress={this.signIn} />;
         }
         break;
       case 'thumbnail':
         content = <ThumbnailScreen buttonPress={this.changeScreenImage} user={this.state.name} menuPress={this.signOut} />;
-      break;
-        case 'startGame':
-            content = <GamePlayScreen menuPress={this.signOut} buttonPress={this.changeScreen} user={this.state.id} userName={this.state.name} selectedImage={this.state.imageId} selectedImageSrc={imageList.images[this.state.imageId - 1].source}/>;
-
-       // content = <StartGameScreen buttonPress={this.changeScreen} user={this.state.name} menuPress={this.signOut}/>;
         break;
       case 'gamePlay':
-        content = <GamePlayScreen menuPress={this.signOut} buttonPress={this.changeScreen} user={this.state.id} userName={this.state.name} selectedImage={this.state.imageId} selectedImageSrc={imageList.images[this.state.imageId - 1].source}/>;
+        content = <GamePlayScreen menuPress={this.signOut} buttonPress={this.changeScreen} user={this.state.id} userName={this.state.name} selectedImage={this.state.imageId} selectedImageSrc={imageList.images[this.state.imageId - 1].source} />;
         break;
       case 'roundWon':
         content = <WinScreen buttonPress={this.changeScreenNext} />;
@@ -171,8 +148,6 @@ class App extends Component {
         content = <NewBestScreen buttonPress={this.changeScreenNext} />;
         break;
     }
-
-    console.log('page ' + this.state.page);
 
     return (
       <LinearGradient colors={['#680A4D', '#FC354C']} start={[0, .9]} end={[1, 0]} style={{ flex: 1 }}>

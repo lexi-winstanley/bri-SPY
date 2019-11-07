@@ -7,22 +7,21 @@ import Thumbnail from '../components/Thumbnail';
 const ThumbnailContainer = props => {
     return (
         <View style={styles.mainContainer}>
-        <FlatList 
-            data={imageList.images}
-            renderItem={(image) => (
-                <View style={styles.thumbnailHeightControl}>
-                <Thumbnail
-                    id={image.item.id}
-                    src={image.item.thumbnail}
-                    buttonPress={props.buttonPress}
-                    pageName={'startGame'}
-                />
-                </View>
-            )}
-            numColumns={3}
-            keyExtractor={image => image.id}
-        >
-        </FlatList>
+            <FlatList
+                data={imageList.images}
+                renderItem={(image) => (
+                    <View style={styles.thumbnailHeightControl}>
+                        <Thumbnail
+                            id={image.item.id}
+                            src={image.item.thumbnail}
+                            buttonPress={props.buttonPress}
+                            pageName={'gamePlay'}
+                        />
+                    </View>
+                )}
+                numColumns={3}
+                keyExtractor={image => image.id}
+            />
         </View>
     )
 };

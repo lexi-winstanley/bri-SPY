@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import { View, Text } from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
 import colors from '../constants/colors';
 import fonts from '../constants/fonts';
@@ -22,12 +22,12 @@ const styles = EStyleSheet.create({
         paddingVertical: '.5rem',
         justifyContent: 'flex-end',
         alignItems: 'flex-start'
-    }, 
+    },
     appTitle: {
         color: colors.accent,
         fontSize: '2.5rem',
         fontFamily: fonts.primary
-    }, 
+    },
     welcomeText: {
         color: colors.accent,
         fontSize: '1.5rem',

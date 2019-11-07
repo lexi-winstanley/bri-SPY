@@ -1,5 +1,5 @@
-import React, {useState} from 'react';
-import {View} from 'react-native';
+import React, { useState } from 'react';
+import { View } from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
 
 import Header from '../components/Header';
@@ -13,16 +13,14 @@ const ThumbnailScreen = props => {
     const menuHandler = bool => {
         setMenuVisible(bool);
     }
-    console.log(props);
-
 
     return (
         <View style={styles.container}>
-            <Header title={`WELCOME ${props.user}`} version='welcomeText'/>
-            <CenterText message='Select an image below to get started!'/>
-            <ThumbnailContainer buttonPress={props.buttonPress} pageName='startGame'/>
-            <MenuToggle imageName={require('../assets/SettingsLight.png')} menuToggle={menuHandler} headerToggle={true} version='outerContainerThumbnail'/>
-            <Menu visible={menuVisible} buttonPress={props.buttonPress} menuToggle={menuHandler} visibleToggle={false} menuPress={props.menuPress} desiredButton='logOut'/>
+            <Header title={`WELCOME ${props.user}`} version='welcomeText' />
+            <CenterText message='Select an image below to get started!' />
+            <ThumbnailContainer buttonPress={props.buttonPress} pageName='gamePlay' />
+            <MenuToggle imageName={require('../assets/SettingsLight.png')} menuToggle={menuHandler} headerToggle={true} version='outerContainerThumbnail' />
+            <Menu visible={menuVisible} buttonPress={props.buttonPress} menuToggle={menuHandler} visibleToggle={false} menuPress={props.menuPress} desiredButton='logOut' />
         </View>
     );
 };

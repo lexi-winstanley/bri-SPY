@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, Image} from 'react-native';
+import { View, Text, Image } from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
 import colors from '../constants/colors';
 import fonts from '../constants/fonts';
@@ -27,9 +27,9 @@ const styles = EStyleSheet.create({
     messageText: {
         color: colors.accent,
         fontSize: '1.25rem',
-        fontFamily: fonts.primary, 
+        fontFamily: fonts.primary,
         textTransform: 'uppercase'
-    }, 
+    },
     settingsImage: {
         width: '3rem',
         height: '3rem',

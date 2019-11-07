@@ -15,14 +15,11 @@ const StartGameScreen = props => {
     const menuHandler = bool => {
         setMenuVisible(bool);
     }
-    console.log(props);
-
 
     return (
-
         <View style={styles.container}>
             <Header title={`WELCOME ${props.user}`} version='welcomeText' />
-            <CenterText message='Use your fingers to scroll and zoom around the image to find the icon shown below. Double tap when you find it!' />
+            <CenterText message='Use your fingers to scroll and zoom around the image to find Brian. Double tap when you do to stop the clock!' />
             <CenterIcon />
             <ButtonContainer>
                 <CustomButton title='Start' buttonPress={props.startPress} buttonColor='buttonPink' buttonTextColor='buttonTextPink' />

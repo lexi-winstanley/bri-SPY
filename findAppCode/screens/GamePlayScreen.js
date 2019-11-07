@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Button } from 'react-native';
+import { View } from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
 
 import GamePlayHeader from '../components/GamePlayHeader';
@@ -14,8 +14,8 @@ const GamePlayScreen = props => {
     const [bestSeconds, setBestSeconds] = useState(null);
     const [displayBest, setDisplayBest] = useState('00:00:00');
     const [menuVisible, setMenuVisible] = useState(false);
-    // const [startVisible, setStartVisible] = useState('visible');
-    // const [contentVisible, setContentVisible] = useState('hidden');
+    const [totalSeconds, setTotalSeconds] = useState(0);
+    const [timerActive, setTimerActive] = useState(false);
     const [visibleStatus, setVisibleStatus] = useState({
         start: 'visible',
         content: 'hidden'
@@ -24,23 +24,16 @@ const GamePlayScreen = props => {
         setMenuVisible(bool);
         toggleTimer();
     }
-
     const startHandler = bool => {
-        setVisibleStatus({start: 'hidden', content: 'visible'})
+        setVisibleStatus({ start: 'hidden', content: 'visible' })
         toggleTimer();
     }
-
-    const [totalSeconds, setTotalSeconds] = useState(0);
-    const [timerActive, setTimerActive] = useState(false);
     const toggleTimer = () => {
         setTimerActive(!timerActive);
     }
-
     const endTimer = () => {
         setTimerActive(false);
-        console.log('timer ended');
     }
-
     const buildTime = num => {
         stringNum = String(num);
         return stringNum.length === 1 ? '0' + stringNum : stringNum;
@@ -105,25 +98,21 @@ const GamePlayScreen = props => {
             if (responseJson === null) {
                 console.log('error')
             }
-            console.log(responseJson);
             if (responseJson.length === 0) {
                 const bestTime = null;
                 setBestSeconds(bestTime);
             } else {
                 const bestTime = responseJson[0].time;
-                console.log(bestTime);
                 setBestSeconds(bestTime);
             }
-            console.log('get results: ');
         } catch (error) {
-            console.error(error);
+            console.error('Error:', error);
         }
     }
 
     useEffect(() => {
         getBestTime();
     }, []);
-
 
     useEffect(() => {
         if (bestSeconds === null) {
@@ -133,23 +122,19 @@ const GamePlayScreen = props => {
         }
     }, [bestSeconds]);
 
-    // console.log('image' + props.selectedImage);
-
-    console.log(visibleStatus.start);
-
     return (
         <View style={styles.container}>
             <View style={styles[visibleStatus.start]}>
-            <StartGameScreen startPress={startHandler} buttonPress={props.buttonPress} visible={props.visible} user={props.userName} menuPress={props.menuPress}/>
+                <StartGameScreen startPress={startHandler} buttonPress={props.buttonPress} visible={props.visible} user={props.userName} menuPress={props.menuPress} />
             </View>
             <View style={styles[visibleStatus.content]}>
-            <GamePlayHeader bestTime={displayBest} currentTime={displayTime} menuToggle={menuHandler} headerToggle={true} visible={menuVisible} />
-            <GamePlayContainer>
-                <ImageScrollZoom selectedImageId={props.selectedImage} source={props.selectedImageSrc} buttonPress={props.buttonPress} pageName='roundWon' toggleTimer={toggleTimer} endTimer={endTimer} postNewTime={postNewTime} bestTime={bestSeconds} />
-            </GamePlayContainer>
-            <Menu visible={menuVisible} buttonPress={props.buttonPress} menuToggle={menuHandler} visibleToggle={false} desiredButton='exit' paused={displayTime}>
-                <MenuText message='INSTRUCTIONS: Use your fingers to scroll and zoom around the image to find the hidden icon. Double tap when you find it!' />
-            </Menu>
+                <GamePlayHeader bestTime={displayBest} currentTime={displayTime} menuToggle={menuHandler} headerToggle={true} visible={menuVisible} />
+                <GamePlayContainer>
+                    <ImageScrollZoom selectedImageId={props.selectedImage} source={props.selectedImageSrc} buttonPress={props.buttonPress} pageName='roundWon' toggleTimer={toggleTimer} endTimer={endTimer} postNewTime={postNewTime} bestTime={bestSeconds} />
+                </GamePlayContainer>
+                <Menu visible={menuVisible} buttonPress={props.buttonPress} menuToggle={menuHandler} visibleToggle={false} desiredButton='exit' paused={displayTime}>
+                    <MenuText message='INSTRUCTIONS: Use your fingers to scroll and zoom around the image to find Brian. Double tap when you do to stop the clock!' />
+                </Menu>
             </View>
         </View>
     );
