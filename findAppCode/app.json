@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": ".find( )",
-    "slug": "findAppCode",
+    "name": "bri-SPY",
+    "slug": "bri-spy",
     "privacy": "unlisted",
     "sdkVersion": "35.0.0",
     "platforms": [
