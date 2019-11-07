@@ -133,7 +133,8 @@ const GamePlayScreen = props => {
                     <ImageScrollZoom selectedImageId={props.selectedImage} source={props.selectedImageSrc} buttonPress={props.buttonPress} pageName='roundWon' toggleTimer={toggleTimer} endTimer={endTimer} postNewTime={postNewTime} bestTime={bestSeconds} />
                 </GamePlayContainer>
                 <Menu visible={menuVisible} buttonPress={props.buttonPress} menuToggle={menuHandler} visibleToggle={false} desiredButton='exit' paused={displayTime}>
-                    <MenuText message='INSTRUCTIONS: Use your fingers to scroll and zoom around the image to find Brian. Double tap when you do to stop the clock!' />
+                    <MenuText message="INSTRUCTIONS: Use your fingers to scroll and zoom around the image to find Brian. 
+                    Gently double tap on Brian's face to stop the clock!" />
                 </Menu>
             </View>
         </View>
