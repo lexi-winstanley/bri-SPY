@@ -71,7 +71,7 @@ const GamePlayScreen = props => {
                 body: JSON.stringify({
                     time: totalSeconds,
                     userId: props.user,
-                    imageId: 1
+                    imageId: props.selectedImage
                 })
             });
             if (bestSeconds === null) {

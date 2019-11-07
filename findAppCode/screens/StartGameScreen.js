@@ -19,11 +19,7 @@ const StartGameScreen = props => {
     return (
         <View style={styles.container}>
             <Header title={`WELCOME ${props.user}`} version='welcomeText' />
-            <CenterText message="Use two fingers to zoom in and scroll around the image to find Brian. 
-            
-
-            
-            Gently double tap on Brian's face to stop the clock!" />
+            <CenterText message="Use two fingers to zoom in and scroll around the image to find Brian. Gently double tap on Brian's face to stop the clock!" />
             <CenterIcon />
             <ButtonContainer>
                 <CustomButton title='Start' buttonPress={props.startPress} buttonColor='buttonPink' buttonTextColor='buttonTextPink' />

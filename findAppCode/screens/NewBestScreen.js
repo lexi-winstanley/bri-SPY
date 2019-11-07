@@ -12,7 +12,7 @@ const newBestScreen = props => {
     return (
         <View style={styles.container}>
             <MainContent>
-                <CenterText message='Congratulations! You found Brian! New Best Time!' />
+                <CenterText message='Congratulations! You found Brian! New best time!' />
                 <CenterIcon />
             </MainContent>
             <ButtonContainer>

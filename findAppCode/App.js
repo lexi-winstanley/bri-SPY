@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
 import * as Google from 'expo-google-app-auth';
-import { Dimensions, ImageBackground, SafeAreaView, Button, View } from 'react-native';
+import { Dimensions } from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
 import * as Font from 'expo-font';
 import { LinearGradient } from 'expo-linear-gradient';
 
 import WelcomeScreen from './screens/WelcomeScreen';
 import ThumbnailScreen from './screens/ThumbnailScreen';
-import StartGameScreen from './screens/StartGameScreen';
 import GamePlayScreen from './screens/GamePlayScreen';
 import WinScreen from './screens/WinScreen';
 import NewBestScreen from './screens/NewBestScreen';
