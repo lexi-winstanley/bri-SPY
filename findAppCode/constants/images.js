@@ -74,8 +74,8 @@ export default {
             height: 2708,
             iconFromLeft: 946.692,
             iconFromTop: 1961.957,
-            iconWidth: 12,
-            iconHeight: 17.355
+            iconWidth: 18,
+            iconHeight: 26.032 
         },
         {
             id: '8',
@@ -85,8 +85,8 @@ export default {
             height: 2708,
             iconFromLeft: 106.703,
             iconFromTop: 701.035,
-            iconWidth: 10,
-            iconHeight: 14.462
+            iconWidth: 18,
+            iconHeight: 26.032 
         },
         {
             id: '9',
@@ -107,8 +107,8 @@ export default {
             height: 2708,
             iconFromLeft: 1204.21,
             iconFromTop: 2695.804,
-            iconWidth: 10,
-            iconHeight: 14.462
+            iconWidth: 18,
+            iconHeight: 26.032 
         },
         {
             id: '11',
@@ -138,10 +138,10 @@ export default {
             thumbnail: require('../assets/Image13Thumbnail.png'),
             width: 1500,
             height: 2708,
-            iconFromLeft: 490.206,
-            iconFromTop: 1536.295,
-            iconWidth: 9.967,
-            iconHeight: 14.473
+            iconFromLeft: 917.285,
+            iconFromTop: 360.782,
+            iconWidth: 15.048,
+            iconHeight: 21.807 
         },
         {
             id: '14',
@@ -162,8 +162,8 @@ export default {
             height: 2708,
             iconFromLeft: 38.816,
             iconFromTop: 1053.009,
-            iconWidth: 15,
-            iconHeight: 21.693
+            iconWidth: 20,
+            iconHeight: 28.924
         },
         {
             id: '16',
@@ -171,10 +171,10 @@ export default {
             thumbnail: require('../assets/Image16Thumbnail.png'),
             width: 1500,
             height: 2708,
-            iconFromLeft: 346.715,
-            iconFromTop: 2644.422,
-            iconWidth: 10,
-            iconHeight: 14.462
+            iconFromLeft: 665.184,
+            iconFromTop: 2679.898,
+            iconWidth: 20,
+            iconHeight: 28.924
         },
         {
             id: '17',
@@ -206,8 +206,8 @@ export default {
             height: 2708,
             iconFromLeft: 1293.863,
             iconFromTop: 1345.658,
-            iconWidth: 15,
-            iconHeight: 21.693 
+            iconWidth: 20,
+            iconHeight: 28.924 
         },
         {
             id: '20',
