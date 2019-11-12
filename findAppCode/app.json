@@ -2,7 +2,7 @@
   "expo": {
     "name": "bri-SPY",
     "slug": "bri-spy",
-    "privacy": "unlisted",
+    "privacy": "public",
     "sdkVersion": "35.0.0",
     "platforms": [
       "ios",
@@ -14,8 +14,8 @@
     "icon": "./assets/icon.png",
     "splash": {
       "image": "./assets/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "resizeMode": "cover",
+      "backgroundColor": "#FC354C"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
@@ -26,6 +26,13 @@
     "ios": {
       "supportsTablet": true
     },
-    "description": "bri-SPY is a mobile game in which users pinch-to-zoom and pan to navigate around an image in order to find a small hidden icon. There is a growing library of photos to play through."
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/foreground.png",
+        "backgroundColor": "#FC354C",
+        "backgroundImage": "./assets/background.png"
+      }
+    },
+    "description": "bri-SPY is a game in which users pinch-to-zoom and pan to navigate around an image in order to find a small hidden icon. There is a growing library of photos to play through."
   }
 }
