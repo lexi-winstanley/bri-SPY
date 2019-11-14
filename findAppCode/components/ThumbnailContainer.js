@@ -35,6 +35,13 @@ const styles = EStyleSheet.create({
         height: '10rem',
         width: '33.3333%',
         padding: '.5rem'
+    },
+    '@media (min-width: 599)': {
+        thumbnailHeightControl: {
+            height: '15rem',
+            width: '33.3333%',
+            padding: '.5rem'
+        }
     }
 });
 

@@ -120,7 +120,14 @@ class App extends Component {
 
   render() {
     const { width } = Dimensions.get('window');
-    const rem = width > 340 ? 18 : 17;
+    let rem;
+    if (width > 599) {
+      rem = 26;
+    } else if (width > 340) {
+      rem = 18;
+    } else {
+      rem = 17;
+    }
     EStyleSheet.build({
       $rem: rem,
     });
