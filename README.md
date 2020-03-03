@@ -16,7 +16,7 @@ Continue developing the component which handles pinch-to-zoom, pan and double ta
 ## Role
 Technical lead of a three person development team. Collaborated with team members regarding application functionality and design. Helped team members as needed to deliver integration with Google Authentication, timer functionality and was responsible for all other code including the backend as well as styling to comply agreed upon design. Also created custom component to handle pinch-to-zoom, pan and double tap actions during game play. 
 
-## Collaborators
+## Additional Collaborators
 [Edouard](https://github.com/edepaolo)
 <br/>[Saranda](https://github.com/annda7)
 
