@@ -4,10 +4,10 @@
 ## Motivation 
 To begin learning React Native and create a mobile game that would feature beautiful images and be low stress and fun to play.
 
-## Description
+## Summary
 bri-SPY is a "Where's Waldo?" inspired React Native mobile game in which users pinch-to-zoom and pan to find the hidden character, Brian, then double tap to stop the clock and store their time. If their time beats the stored "Best Time" for that image they are notified. 
 
-## Technical Information
+## Details
 After the application loads the user is presented with a sign-in screen powered by Google Authentication, once the user successfully signs in an API call is made to the backend to check if the user exists in the MongoDB database. If they already exist their information is returned to personalize the user's display and allow for storage of their image solve times. If the user does not exist in the database their information is stored. The user can then choose from the library of images and begin playing. Once they click an image and press the "Start" button, a timer begins and the user can pinch-to-zoom and pan around the image in order to find the hidden icon. Once they find the icon they double tap which stops the timer and another API call is made to determine if they have beat the stored best time for that specific image. The user is alerted on the next screen if they achieved a new best time and is presented with the option to return to the image library or continue to the next image. The application also features a menu which opens as an overlay and pauses the timer during game play or allows users the option to exit their current image and return to the main screen where they can chose to sign out. 
 
 ## Future Development
