@@ -15,7 +15,7 @@ Technical lead of a three person development team. Collaborated with team member
 
 ## Collaborators
 [Edouard](https://github.com/edepaolo)
-[Saranda](https://github.com/annda7)
+<br/>[Saranda](https://github.com/annda7)
 
 ## Technologies Used
 React Native
