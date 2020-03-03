@@ -20,7 +20,7 @@ Technical lead of a three person development team. Collaborated with team member
 [Edouard](https://github.com/edepaolo)
 <br/>[Saranda](https://github.com/annda7)
 
-## Technologies Used
+## Technologies
 React Native
 <br/>Expo
 <br/>JavaScript
