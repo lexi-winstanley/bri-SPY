@@ -1,124 +1,30 @@
-## .find() Mobile App Idea
-The main idea behind Project 3 is to create a Mobile game app that will display a picture with a hidden character using React and React Native.
-
-The past two projects we have been working with Web Apps, so we decided on the Final project to try something different.
-
-## Value:
-* Entertainment
-* Encourages kids and adults to persevere and deeper focus if they cannot find the object or character right away. This packed seek-and-find game takes patience and effort.
-* Setting Elapse 
-
-
-## First whiteboard skteches of the app below: 
-
-<img src="images/sketch.jpg" width="350">
-
-
-
-## Project Management Board: (screenshot): 
-    Summer lemonade color schemes
-
-<img src="images/gardients.png" width="200">
-<img src="images/project_mb.PNG" width="200">
-<img src="images/project_calendar.PNG" width="200">
-
-
-
-## Landing Screen:
-* Title
-* Instructions - * In progress* 
-* Login/Create Account
-
-<img src="images/welcome.png" width="200">  <img src="images/create.png" width="200"> 
-
-## Welcome User:
-* Start Button
-
-<img src="images/Start.png" width="200"> 
-
-## Game Play:
-* Randomized Image 
-* On Image load, 'Best Time' shown if available. 
-* Settings button includes (Timer should stop when on settings page): 
-    - Mute
-    - Instructions
-    - Exit Game
-   
-    
-<img src="images/play.png" width="200">  <img src="images/Settings.png" width="200"> 
-
-
-## Success Screen: 
-* Animation Effect
-* Time Elapsed
-* Best Time
-* Play Again Button
-
-<img src="images/Win.png" width="200"> 
-
-
-## Fail Screen:
-* Animation Effect
-* Too Many Clicks
-* New Image Generator Button
-
-Image not available:
-  <img src="images/Fail.png" width="200"> 
-
-
-### Stretch Goals: 
-* Rating
-* Audio for touches
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-## Techologies:
-
-<li><strong><a href="https://www.adobe.com/products/illustrator.html?gclid=EAIaIQobChMIw52uk6Ck5QIVAtlkCh27_Q4FEAAYASAAEgIyCPD_BwE&sdid=KKQML&mv=search&ef_id=EAIaIQobChMIw52uk6Ck5QIVAtlkCh27_Q4FEAAYASAAEgIyCPD_BwE:G:s&s_kwcid=AL!3085!3!332938048272!e!!g!!illustrator">Adobe Illustrator</a></strong>
-
-
-<li><strong><a href="https://projects.invisionapp.com/share/65UFNG4G3ZB#/screens/">InVision</a></strong>
-
-<li><strong><a href="https://facebook.github.io/react-native/showcase">React Native</a></strong>
-
- <!-- <li><strong><a href="https://facebook.github.io/react-native/showcase">React Native</a></strong> -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-## Dev Team / Roles: 
-<li><strong><a href="https://github.com/edepaolo">Eddie</a></strong> 
-<li><strong><a href="https://github.com/annda7">Saranda</a></strong> 
- <li><strong><a href="https://github.com/lexi-winstanley">Lexi</a></strong>
+# bri-SPY
+[Back End Repository](https://github.com/lexi-winstanley/bri-SPYBackEnd)
+
+## Motivation 
+To create a mobile game that would be low stress and fun to play as well as beautiful to look at and present opportunity to begin learning React Native.
+
+## Description
+bri-SPY is a "Where's Waldo?" inspired React Native mobile game in which users pinch-to-zoom and pan to find the hidden character, Brian, then double tap to stop the clock and store their time. If their time beats the stored "Best Time" for that image they are notified. 
+
+## Technical Information
+After the application loads the user is presented with a sign-in screen powered by Google Authentication, once the user successfully signs in an API call is made to the backend to check if the user exists in the MongoDB database. If they already exist their information is returned to personalize the user's display and allow for storage of their image solve times. If the user does not exist in the database their information is stored. The user can then choose from the library of images and begin playing. Once they click an image and press the "Start" button, a timer begins and the user can pinch-to-zoom and pan around the image in order to find the hidden icon. Once they find the icon they double tap which stops the timer and another API call is made to determine if they have beat the stored best time for that specific image. The user is alerted on the next screen if they achieved a new best time and is presented with the option to return to the image library or continue to the next image. The application also features a menu which opens as an overlay and pauses the timer during game play or allows users the option to exit their current image and return to the main screen where they can chose to sign out. 
+
+## Role
+Technical lead of a three person development team. Collaborated with team members regarding application functionality and design. Helped team members as needed to deliver integration with Google Authentication, timer functionality and was responsible for all other code including the backend as well as styling to comply agreed upon design. Also created custom component to handle pinch-to-zoom, pan and double tap actions during game play. 
+
+## Collaborators
+[Edouard](https://github.com/edepaolo)
+[Saranda](https://github.com/annda7)
+
+## Technologies Used
+React Native
+<br/>Expo
+<br/>JavaScript
+<br/>MongoDB
+<br/>Mongoose
+<br/>Node.js
+<br/>Express
+<br/>Heroku
+<br/>**Node Packages:** 
+<br/>expo-font, expo-google-app-auth, expo-linear-gradient, react-native-extended stylesheet, react-native-gesture-handler, react-native-reanimated
