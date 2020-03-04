@@ -21,7 +21,9 @@ Technical lead of a three person development team. Collaborated with team member
 <br/>[Saranda Sharpe](https://github.com/annda7)
 
 ## Technologies
-React Native
+HTML
+<br/>CSS
+<br/>React Native
 <br/>Expo
 <br/>JavaScript
 <br/>MongoDB
